@@ -433,6 +433,11 @@ a:hover, a:focus {
 /* Contact Section */
 .contact-section {
     padding: var(--space-xxl) 0;
+    margin-top: var(--space-xxl);
+}
+
+.contact-section .section-title {
+    text-align: center;
 }
 
 .contact-form-container {
