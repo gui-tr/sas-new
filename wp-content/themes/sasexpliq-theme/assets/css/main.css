@@ -303,6 +303,18 @@ a:hover, a:focus {
     margin-bottom: var(--space-lg);
 }
 
+/* Custom TTS styling for hero title */
+.hero-title.tts-readable {
+    display: inline-flex;
+    align-items: flex-end;
+    vertical-align: baseline;
+}
+
+.hero-title.tts-readable .tts-button-container {
+    align-self: flex-end;
+    margin-bottom: 0.2em;
+}
+
 .hero-image {
     flex: 1;
     display: flex;
@@ -470,7 +482,7 @@ a:hover, a:focus {
     border: 1px solid #ddd;
     border-radius: var(--border-radius-md);
     font-family: inherit;
-    font-size: inherit;
+    font-size: var(--font-size-lg);
 }
 
 .form-group input:focus,
@@ -582,4 +594,45 @@ a:hover, a:focus {
         margin-left: -125px;
         margin-right: -125px;
     }
+}
+
+/* Fixed footer layout */
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#page {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#primary {
+    flex: 1 0 auto;
+}
+
+.site-footer {
+    margin-top: auto;   
+}
+
+/* Ensure content fills at least viewport height */
+.site-main {
+    min-height: 70vh; /* This gives some minimum space between header and footer */
+}
+
+/* For article pages with minimal content */
+.article-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 70vh;
+}
+
+.article-content {
+    flex-grow: 1;
 }

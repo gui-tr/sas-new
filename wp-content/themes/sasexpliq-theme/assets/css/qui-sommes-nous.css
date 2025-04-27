@@ -30,6 +30,11 @@
     font-weight: 700;
 }
 
+.qui-sommes-nous-page .association-section .section-body {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
 .qui-sommes-nous-page .association-content {
     font-size: var(--font-size-lg);
     line-height: 1.6;

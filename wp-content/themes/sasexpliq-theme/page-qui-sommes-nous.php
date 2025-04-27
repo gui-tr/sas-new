@@ -41,9 +41,6 @@ get_header();
 
             <section class="team-section">
                 <div class="section-text">
-                    <div>
-                        <h2 class="section-title">Notre équipe</h2>
-                    </div>
                     <div class="section-body">
                         <div class="team-members">
                             <!-- Team Member 1 -->

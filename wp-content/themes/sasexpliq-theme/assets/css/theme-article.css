@@ -149,6 +149,32 @@
     color: #000;
 }
 
+/* Make text white for specific themes */
+.theme-green .article-header,
+.theme-pink .article-header,
+.theme-blue .article-header,
+.theme-purple .article-header {
+    color: white;
+}
+
+.theme-green .article-header .breadcrumb-link,
+.theme-pink .article-header .breadcrumb-link,
+.theme-blue .article-header .breadcrumb-link,
+.theme-purple .article-header .breadcrumb-link,
+.theme-green .article-header .article-title,
+.theme-pink .article-header .article-title,
+.theme-blue .article-header .article-title,
+.theme-purple .article-header .article-title {
+    color: white;
+}
+
+.theme-green .article-header .breadcrumb-link:hover,
+.theme-pink .article-header .breadcrumb-link:hover,
+.theme-blue .article-header .breadcrumb-link:hover,
+.theme-purple .article-header .breadcrumb-link:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
 .article-title {
     font-size: var(--font-size-xxl);
     font-weight: 700;
@@ -187,7 +213,7 @@
 .related-title {
     font-size: var(--font-size-xl);
     margin-bottom: var(--space-lg);
-    color: var(--color-primary);
+    color: #000;
 }
 
 /* Responsive Styles */

@@ -50,8 +50,9 @@ if (!empty($theme_terms)) {
                 </a>
             </div>
             <?php endif; ?>
-            
-            <h1 class="article-title"><?php the_title(); ?></h1>
+            <div class="tts-readable">
+                <h1 class="article-title"><?php the_title(); ?></h1>
+            </div>
         </div>
     </div>
 
@@ -62,9 +63,10 @@ if (!empty($theme_terms)) {
                 <?php the_post_thumbnail('large'); ?>
             </div>
             <?php endif; ?>
-            
-            <div class="article-entry">
-                <?php the_content(); ?>
+            <div class="tts-readable">
+                <div class="article-entry">
+                    <?php the_content(); ?>
+                </div>
             </div>
         </article>
 

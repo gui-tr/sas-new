@@ -25,7 +25,9 @@ $featured_image = get_the_post_thumbnail_url($theme_id, 'full');
     <div class="theme-banner" style="background-color: var(--color-<?php echo esc_attr($color_class); ?>);">
         <div class="container">
             <div class="theme-banner-content">
-                <h1 class="theme-title"><?php echo esc_html($theme_title); ?></h1>
+                <div class="tts-readable">
+                    <h1 class="theme-title"><?php echo esc_html($theme_title); ?></h1>
+                </div>
                 
                 <?php if ($featured_image) : ?>
                 <div class="theme-banner-image">
@@ -65,12 +67,15 @@ $featured_image = get_the_post_thumbnail_url($theme_id, 'full');
                 echo '<div class="articles-grid">';
                 
                 while ($articles->have_posts()) : $articles->the_post();
+                    // Get the article title and excerpt
+                    $article_title = get_the_title();
+                    $article_excerpt = get_the_excerpt();
                     ?>
                     <a href="<?php the_permalink(); ?>" class="article-card">
                         <div class="article-card-inner">
-                            <h3 class="article-title"><?php the_title(); ?></h3>
+                            <h3 class="article-title"><?php echo esc_html($article_title); ?></h3>
                             <div class="article-excerpt">
-                                <?php the_excerpt(); ?>
+                                <?php echo wpautop(esc_html($article_excerpt)); ?>
                             </div>
                         </div>
                     </a>

@@ -11,7 +11,7 @@ get_header();
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title">L'éducation sexuelle facile<br>à comprendre</h1>
+                    <h1 class="hero-title tts-readable">L'éducation sexuelle facile<br>à comprendre</h1>
                 </div>
                 <div class="hero-image">
                     <img src="<?php echo esc_url( SASEXPLIQ_THEME_URI . '/assets/images/hero-couple.png' ); ?>" alt="Couple illustration">
@@ -22,7 +22,7 @@ get_header();
 
     <section id="themes" class="themes-section">
         <div class="container">
-            <h2 class="section-title">Thèmes</h2>
+            <h2 class="section-title tts-readable">Thèmes</h2>
             
             <div class="themes-grid">
                 <?php
@@ -96,7 +96,7 @@ get_header();
                             <img src="<?php echo esc_url( SASEXPLIQ_THEME_URI . '/assets/images/themes/' . $svg_filename ); ?>" alt="<?php echo esc_attr( $theme['title'] ); ?> icon">
                         </div>
                     </a>
-                    <h3 class="theme-card-title"><?php echo esc_html( $theme['title'] ); ?></h3>
+                    <h3 class="theme-card-title tts-readable"><?php echo esc_html( $theme['title'] ); ?></h3>
                 </div>
                 <?php endforeach; ?>
             </div>
@@ -105,7 +105,11 @@ get_header();
 
     <section class="contact-section">
         <div class="container">
-            <h2 class="section-title">Tu veux nous écrire?</h2>
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div class="tts-readable">
+                    <h2 class="section-title">Tu veux nous écrire?</h2>
+                </div>
+            </div>
             
             <div class="contact-form-container">
                 <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" class="contact-form">
