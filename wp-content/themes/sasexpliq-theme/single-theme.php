@@ -4,25 +4,101 @@
  */
 
 get_header();
+
+// Get current theme and its color
+$theme_id = get_the_ID();
+$theme_title = get_the_title();
+$theme_content = get_the_content();
+$theme_terms = get_the_terms($theme_id, 'theme_color');
+$theme_color = !empty($theme_terms) ? $theme_terms[0]->slug : 'yellow';
+
+// Get color class
+$color_class = sasexpliq_get_theme_color_class($theme_color);
+
+// Get the featured image
+$featured_image = get_the_post_thumbnail_url($theme_id, 'full');
 ?>
 
-<main id="primary" class="site-main">
-    <div class="container">
-        <?php
-        while ( have_posts() ) :
-            the_post();
-
-            get_template_part( 'template-parts/content', 'theme' );
-
-            // If comments are open or we have at least one comment, load up the comment template.
-            if ( comments_open() || get_comments_number() ) :
-                comments_template();
-            endif;
-
-        endwhile; // End of the loop.
-        ?>
+<main id="primary" class="site-main theme-page theme-<?php echo esc_attr($color_class); ?>">
+    
+    <!-- Theme Banner -->
+    <div class="theme-banner" style="background-color: var(--color-<?php echo esc_attr($color_class); ?>);">
+        <div class="container">
+            <div class="theme-banner-content">
+                <h1 class="theme-title"><?php echo esc_html($theme_title); ?></h1>
+                
+                <?php if ($featured_image) : ?>
+                <div class="theme-banner-image">
+                    <img src="<?php echo esc_url($featured_image); ?>" alt="<?php echo esc_attr($theme_title); ?>">
+                </div>
+                <?php endif; ?>
+            </div>
+        </div>
     </div>
-</main><!-- #main -->
+
+    <div class="container">
+        <?php if (!empty($theme_content)) : ?>
+        <div class="theme-content">
+            <?php echo apply_filters('the_content', $theme_content); ?>
+        </div>
+        <?php endif; ?>
+
+        <!-- Articles Section -->
+        <div class="theme-articles">
+            <?php
+            // Get articles for this theme
+            $args = array(
+                'post_type' => 'article',
+                'posts_per_page' => -1,
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'theme_color',
+                        'field' => 'slug',
+                        'terms' => $theme_color,
+                    ),
+                ),
+            );
+            
+            $articles = new WP_Query($args);
+            
+            if ($articles->have_posts()) :
+                echo '<div class="articles-grid">';
+                
+                while ($articles->have_posts()) : $articles->the_post();
+                    ?>
+                    <a href="<?php the_permalink(); ?>" class="article-card">
+                        <div class="article-card-inner">
+                            <h3 class="article-title"><?php the_title(); ?></h3>
+                            <div class="article-excerpt">
+                                <?php the_excerpt(); ?>
+                            </div>
+                        </div>
+                    </a>
+                    <?php
+                endwhile;
+                
+                echo '</div>';
+                
+                // Reset post data
+                wp_reset_postdata();
+            else :
+                ?>
+                <div class="no-articles">
+                    <p><?php _e('Aucun article pour ce thème.', 'sasexpliq'); ?></p>
+                </div>
+                <?php
+            endif;
+            ?>
+        </div>
+
+        <!-- Back Button -->
+        <div class="theme-actions">
+            <a href="<?php echo esc_url(home_url('/')); ?>" class="btn-choose-theme">
+                <?php _e('Choisir un autre thème', 'sasexpliq'); ?>
+            </a>
+        </div>
+    </div>
+</main>
 
 <?php
 get_footer();

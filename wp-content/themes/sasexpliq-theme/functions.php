@@ -80,7 +80,12 @@ function sasexpliq_scripts() {
     
     // Conditionally load the Qui sommes-nous CSS on the appropriate page
     if (is_page_template('page-qui-sommes-nous.php') || is_page('qui-sommes-nous')) {
-        wp_enqueue_style('sasexpliq-qui-sommes-nous', SASEXPLIQ_THEME_URI . '/assets/css/qui-sommes-nous.css', array('sasexpliq-main'), '1.0.1');
+        wp_enqueue_style('sasexpliq-qui-sommes-nous', SASEXPLIQ_THEME_URI . '/assets/css/qui-sommes-nous.css', array('sasexpliq-style'), '1.0.1');
+    }
+
+    // Load theme and article styles when viewing theme or article post types
+    if (is_singular('theme') || is_singular('article')) {
+        wp_enqueue_style('sasexpliq-theme-article', SASEXPLIQ_THEME_URI . '/assets/css/theme-article.css', array('sasexpliq-style'), '1.0.0');
     }
 }
 add_action( 'wp_enqueue_scripts', 'sasexpliq_scripts' );
@@ -208,6 +213,57 @@ function sasexpliq_process_contact_form() {
 }
 add_action( 'admin_post_sasexpliq_contact_form', 'sasexpliq_process_contact_form' );
 add_action( 'admin_post_nopriv_sasexpliq_contact_form', 'sasexpliq_process_contact_form' );
+
+
+/**
+ * Create custom post type for Articles
+ * Add this code to your functions.php file
+ */
+function sasexpliq_register_article_post_type() {
+    $labels = array(
+        'name'               => _x( 'Articles', 'post type general name', 'sasexpliq' ),
+        'singular_name'      => _x( 'Article', 'post type singular name', 'sasexpliq' ),
+        'menu_name'          => _x( 'Articles', 'admin menu', 'sasexpliq' ),
+        'name_admin_bar'     => _x( 'Article', 'add new on admin bar', 'sasexpliq' ),
+        'add_new'            => _x( 'Ajouter', 'article', 'sasexpliq' ),
+        'add_new_item'       => __( 'Ajouter un article', 'sasexpliq' ),
+        'new_item'           => __( 'Nouvel article', 'sasexpliq' ),
+        'edit_item'          => __( 'Modifier l\'article', 'sasexpliq' ),
+        'view_item'          => __( 'Voir l\'article', 'sasexpliq' ),
+        'all_items'          => __( 'Tous les articles', 'sasexpliq' ),
+        'search_items'       => __( 'Rechercher des articles', 'sasexpliq' ),
+        'not_found'          => __( 'Aucun article trouvé.', 'sasexpliq' ),
+        'not_found_in_trash' => __( 'Aucun article trouvé dans la corbeille.', 'sasexpliq' ),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'article' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 6,
+        'menu_icon'          => 'dashicons-media-text',
+        'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+    );
+
+    register_post_type( 'article', $args );
+}
+add_action( 'init', 'sasexpliq_register_article_post_type' );
+
+/**
+ * Add articles to theme_color taxonomy
+ */
+function sasexpliq_update_theme_color_taxonomy() {
+    // Get the existing 'theme_color' taxonomy and add it to the 'article' post type
+    register_taxonomy_for_object_type( 'theme_color', 'article' );
+}
+add_action( 'init', 'sasexpliq_update_theme_color_taxonomy', 11 ); // Priority 11 to run after the taxonomy registration
 
 /**
  * Include additional files

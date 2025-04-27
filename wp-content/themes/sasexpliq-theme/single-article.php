@@ -1,0 +1,123 @@
+<?php
+/**
+ * The template for displaying single articles
+ */
+
+get_header();
+
+// Get the article's theme
+$article_id = get_the_ID();
+$theme_terms = get_the_terms($article_id, 'theme_color');
+$theme_color = !empty($theme_terms) ? $theme_terms[0]->slug : 'yellow';
+$color_class = sasexpliq_get_theme_color_class($theme_color);
+
+// Get the theme object to link back to
+$theme_obj = null;
+if (!empty($theme_terms)) {
+    $args = array(
+        'post_type' => 'theme',
+        'posts_per_page' => 1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'theme_color',
+                'field' => 'slug',
+                'terms' => $theme_color,
+            ),
+        ),
+    );
+    $theme_query = new WP_Query($args);
+    if ($theme_query->have_posts()) {
+        $theme_query->the_post();
+        $theme_obj = array(
+            'id' => get_the_ID(),
+            'title' => get_the_title(),
+            'url' => get_permalink(),
+        );
+        wp_reset_postdata();
+    }
+}
+?>
+
+<main id="primary" class="site-main article-page theme-<?php echo esc_attr($color_class); ?>">
+    
+    <!-- Article Header -->
+    <div class="article-header" style="background-color: var(--color-<?php echo esc_attr($color_class); ?>);">
+        <div class="container">
+            <?php if ($theme_obj) : ?>
+            <div class="article-breadcrumb">
+                <a href="<?php echo esc_url($theme_obj['url']); ?>" class="breadcrumb-link">
+                    &larr; <?php echo esc_html($theme_obj['title']); ?>
+                </a>
+            </div>
+            <?php endif; ?>
+            
+            <h1 class="article-title"><?php the_title(); ?></h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <article id="post-<?php the_ID(); ?>" <?php post_class('article-content'); ?>>
+            <?php if (has_post_thumbnail()) : ?>
+            <div class="article-featured-image">
+                <?php the_post_thumbnail('large'); ?>
+            </div>
+            <?php endif; ?>
+            
+            <div class="article-entry">
+                <?php the_content(); ?>
+            </div>
+        </article>
+
+        <!-- Related Articles -->
+        <?php
+        // Get related articles from the same theme
+        $args = array(
+            'post_type' => 'article',
+            'posts_per_page' => 3,
+            'post__not_in' => array($article_id),
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'theme_color',
+                    'field' => 'slug',
+                    'terms' => $theme_color,
+                ),
+            ),
+        );
+        
+        $related_articles = new WP_Query($args);
+        
+        if ($related_articles->have_posts()) :
+        ?>
+        <div class="related-articles">
+            <h2 class="related-title"><?php _e('Articles similaires', 'sasexpliq'); ?></h2>
+            
+            <div class="articles-grid">
+                <?php while ($related_articles->have_posts()) : $related_articles->the_post(); ?>
+                <a href="<?php the_permalink(); ?>" class="article-card">
+                    <div class="article-card-inner">
+                        <h3 class="article-title"><?php the_title(); ?></h3>
+                        <div class="article-excerpt">
+                            <?php the_excerpt(); ?>
+                        </div>
+                    </div>
+                </a>
+                <?php endwhile; ?>
+            </div>
+            
+            <?php wp_reset_postdata(); ?>
+        </div>
+        <?php endif; ?>
+
+        <!-- Back to Theme -->
+        <?php if ($theme_obj) : ?>
+        <div class="theme-actions">
+            <a href="<?php echo esc_url($theme_obj['url']); ?>" class="btn-back-to-theme">
+                <?php _e('Retour à ', 'sasexpliq'); ?> <?php echo esc_html($theme_obj['title']); ?>
+            </a>
+        </div>
+        <?php endif; ?>
+    </div>
+</main>
+
+<?php
+get_footer();
