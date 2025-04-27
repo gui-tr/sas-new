@@ -18,12 +18,20 @@
     --color-light-bg: #F5F7FA;
     
     /* Theme Colors */
-    --color-purple: #7A1EA1;
-    --color-orange: #FF5722;
-    --color-blue: #4285F4;
-    --color-yellow: #FFCA28;
-    --color-pink: #E91E63;
-    --color-green: #34A853;
+    --color-purple: #5a1991;
+    --color-orange: #f05519;
+    --color-blue: #1e50e6;
+    --color-yellow: #ffcd00;
+    --color-pink: #d2006e;
+    --color-green: #286e3c;
+    
+    /* Theme Light Colors */
+    --color-purple-lite: #a578c8;
+    --color-orange-lite: #ffbe82;
+    --color-blue-lite: #a0c8ff;
+    --color-yellow-lite: #fff0a0;
+    --color-pink-lite: #f5a0c3;
+    --color-green-lite: #9bbe91;
     
     /* Spacing */
     --space-xs: 0.25rem;
@@ -282,19 +290,17 @@ a:hover, a:focus {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-xl);
+    row-gap: calc(var(--space-xl) * 2); /* Double the gap between rows */
 }
 
 .theme-card {
     background-color: white;
-    border-radius: var(--border-radius-lg);
-    overflow: hidden;
-    transition: transform var(--transition-normal);
+    border-radius: 8px;
     box-shadow: var(--shadow-sm);
-}
-
-.theme-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
 .theme-card-link {
@@ -304,95 +310,88 @@ a:hover, a:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.theme-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
 }
 
 .theme-card-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 12px;
-    margin-bottom: var(--space-lg);
+    width: 400px;
+    height: 400px;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -160px;
+    margin-right: -160px;
 }
 
-.theme-card-icon::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-top: 15px solid;
+.theme-card-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .theme-card-title {
     font-size: var(--font-size-lg);
     font-weight: 600;
-    text-align: center;
-    margin-top: var(--space-md);
+    text-align: left;
+    margin-top: var(--space-lg);
+    color: #000000;
+    padding: 0 var(--space-md);
+    margin-bottom: var(--space-md);
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
 }
 
 /* Theme Card Colors */
 .theme-card-purple {
-    background-color: #E6D1F2;
+    background-color: var(--color-purple-lite);
 }
-.theme-card-purple .theme-card-icon {
-    background-color: var(--color-purple);
-}
-.theme-card-purple .theme-card-icon::after {
-    border-top-color: var(--color-purple);
+.theme-card-purple .theme-card-icon img {
+    fill: var(--color-purple);
 }
 
 .theme-card-orange {
-    background-color: #FFE0D1;
+    background-color: var(--color-orange-lite);
 }
-.theme-card-orange .theme-card-icon {
-    background-color: var(--color-orange);
-}
-.theme-card-orange .theme-card-icon::after {
-    border-top-color: var(--color-orange);
+.theme-card-orange .theme-card-icon img {
+    fill: var(--color-orange);
 }
 
 .theme-card-blue {
-    background-color: #D1E5FF;
+    background-color: var(--color-blue-lite);
 }
-.theme-card-blue .theme-card-icon {
-    background-color: var(--color-blue);
-}
-.theme-card-blue .theme-card-icon::after {
-    border-top-color: var(--color-blue);
+.theme-card-blue .theme-card-icon img {
+    fill: var(--color-blue);
 }
 
 .theme-card-yellow {
-    background-color: #FFF5D1;
+    background-color: var(--color-yellow-lite);
 }
-.theme-card-yellow .theme-card-icon {
-    background-color: var(--color-yellow);
-}
-.theme-card-yellow .theme-card-icon::after {
-    border-top-color: var(--color-yellow);
+.theme-card-yellow .theme-card-icon img {
+    fill: var(--color-yellow);
 }
 
 .theme-card-pink {
-    background-color: #FFD1E0;
+    background-color: var(--color-pink-lite);
 }
-.theme-card-pink .theme-card-icon {
-    background-color: var(--color-pink);
-}
-.theme-card-pink .theme-card-icon::after {
-    border-top-color: var(--color-pink);
+.theme-card-pink .theme-card-icon img {
+    fill: var(--color-pink);
 }
 
 .theme-card-green {
-    background-color: #D1FFE0;
+    background-color: var(--color-green-lite);
 }
-.theme-card-green .theme-card-icon {
-    background-color: var(--color-green);
-}
-.theme-card-green .theme-card-icon::after {
-    border-top-color: var(--color-green);
+.theme-card-green .theme-card-icon img {
+    fill: var(--color-green);
 }
 
 /* Contact Section */
@@ -502,4 +501,42 @@ a:hover, a:focus {
 
 .social-link:hover {
     background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* General two-column at 1024px */
+@media (max-width: 1024px) {
+    .themes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .theme-card-icon {
+        width: 250px; /* Smaller than 300px */
+        height: 250px;
+        margin-left: -75px;
+        margin-right: -75px;
+    }
+}
+
+/* Intermediate breakpoint for narrower two-column layout */
+@media (max-width: 900px) and (min-width: 769px) {
+    .theme-card-icon {
+        width: 220px;
+        height: 220px;
+        margin-left: -60px;
+        margin-right: -60px;
+    }
+}
+
+/* One column at 768px */
+@media (max-width: 768px) {
+    .themes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .theme-card-icon {
+        width: 350px;
+        height: 350px;
+        margin-left: -125px;
+        margin-right: -125px;
+    }
 }

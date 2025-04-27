@@ -68,10 +68,36 @@ get_header();
                 <div class="theme-card theme-card-<?php echo esc_attr( $theme['color'] ); ?>">
                     <a href="<?php echo esc_url( $theme_url ); ?>" class="theme-card-link">
                         <div class="theme-card-icon">
-                            <!-- Icon is created with CSS based on the theme color -->
+                            <?php 
+                            // Map the theme slug to the correct SVG filename
+                            $svg_filename = '';
+                            switch ($theme['slug']) {
+                                case 'la-sexualite':
+                                    $svg_filename = 'sexualite.svg';
+                                    break;
+                                case 'les-relations':
+                                    $svg_filename = 'relations.svg';
+                                    break;
+                                case 'le-corps':
+                                    $svg_filename = 'corps.svg';
+                                    break;
+                                case 'etre-soi':
+                                    $svg_filename = 'etre-soi.svg';
+                                    break;
+                                case 'les-droits-sexuels':
+                                    $svg_filename = 'droits.svg';
+                                    break;
+                                case 'divers':
+                                    $svg_filename = 'divers.svg';
+                                    break;
+                                default:
+                                    $svg_filename = 'sexualite.svg';
+                            }
+                            ?>
+                            <img src="<?php echo esc_url( SASEXPLIQ_THEME_URI . '/assets/images/themes/' . $svg_filename ); ?>" alt="<?php echo esc_attr( $theme['title'] ); ?> icon">
                         </div>
-                        <h3 class="theme-card-title"><?php echo esc_html( $theme['title'] ); ?></h3>
                     </a>
+                    <h3 class="theme-card-title"><?php echo esc_html( $theme['title'] ); ?></h3>
                 </div>
                 <?php endforeach; ?>
             </div>
