@@ -1,0 +1,56 @@
+.site-footer {
+    padding: 2rem 0;
+    background-color: #000;
+    color: #fff;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.footer-info {
+    flex: 1;
+}
+
+.footer-social {
+    margin-top: 0;
+}
+
+.social-link.instagram {
+    display: inline-block;
+    color: #fff;
+    transition: color 0.3s ease;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+}
+
+.social-link.instagram:hover {
+    color: #ff6b00;
+    background: none;
+}
+
+.association-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.association-address,
+.association-email {
+    margin: 0.5rem 0;
+}
+
+.association-email a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.association-email a:hover {
+    text-decoration: underline;
+} 

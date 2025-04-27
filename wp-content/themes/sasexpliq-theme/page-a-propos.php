@@ -7,76 +7,98 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<main id="primary" class="site-main a-propos-page">
+    <div class="page-header">
         <div class="container">
-            <header class="entry-header">
-                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-            </header><!-- .entry-header -->
+            <div class="tts-readable">
+                <h1 class="page-title"><?php the_title(); ?></h1>
+            </div>
+        </div>
+    </div>
 
-            <?php if ( has_post_thumbnail() ) : ?>
-            <div class="entry-thumbnail">
-                <?php the_post_thumbnail( 'full', array( 'class' => 'about-featured-image' ) ); ?>
-            </div><!-- .entry-thumbnail -->
-            <?php endif; ?>
-
-            <div class="entry-content">
-                <?php
-                the_content();
-
-                wp_link_pages(
-                    array(
-                        'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'sasexpliq' ),
-                        'after'  => '</div>',
-                    )
-                );
-                ?>
-            </div><!-- .entry-content -->
-
-            <?php if ( get_field( 'team_members' ) ) : // Requires ACF plugin ?>
-            <div class="team-section">
-                <h2 class="section-title"><?php esc_html_e( 'Notre équipe', 'sasexpliq' ); ?></h2>
-                
-                <div class="team-grid">
-                    <?php
-                    $team_members = get_field( 'team_members' );
-                    
-                    foreach ( $team_members as $member ) :
-                        $name = isset( $member['name'] ) ? $member['name'] : '';
-                        $role = isset( $member['role'] ) ? $member['role'] : '';
-                        $bio = isset( $member['bio'] ) ? $member['bio'] : '';
-                        $photo = isset( $member['photo'] ) ? $member['photo'] : 0;
-                    ?>
-                    <div class="team-member">
-                        <?php if ( $photo ) : ?>
-                        <div class="team-member-photo">
-                            <?php echo wp_get_attachment_image( $photo, 'medium' ); ?>
+    <div class="container">
+        <div class="about-content">
+            
+            <!-- Section: C'est quoi -->
+            <section class="about-section">
+                <div class="section-content">
+                    <div class="section-text">
+                        <div class="tts-readable">
+                            <h2 class="section-title">C'est quoi</h2>
                         </div>
-                        <?php endif; ?>
-                        
-                        <div class="team-member-info">
-                            <h3 class="team-member-name"><?php echo esc_html( $name ); ?></h3>
-                            <?php if ( $role ) : ?>
-                            <p class="team-member-role"><?php echo esc_html( $role ); ?></p>
-                            <?php endif; ?>
-                            <?php if ( $bio ) : ?>
-                            <div class="team-member-bio"><?php echo wp_kses_post( $bio ); ?></div>
-                            <?php endif; ?>
+                        <div class="section-body">
+                            <p>Tu trouveras des informations:</p>
+                            <ul class="bullet-list">
+                                <li>– sur la santé sexuelle</li>
+                                <li>– sur le corps</li>
+                                <li>– sur les relations</li>
+                                <li>– sur les droits sexuels</li>
+                                <li>– et encore plein d'autres thèmes</li>
+                            </ul>
                         </div>
                     </div>
-                    <?php endforeach; ?>
+                    <div class="section-image">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/a-propos/cest-quoi.png' ); ?>" alt="Bulle de dialogue">
+                    </div>
                 </div>
-            </div>
-            <?php endif; ?>
-
+            </section>
+            
+            <!-- Section: Pour qui? -->
+            <section class="about-section">
+                <div class="section-content">
+                    <div class="section-text">
+                        <div class="tts-readable">
+                            <h2 class="section-title">Pour qui?</h2>
+                        </div>
+                        <div class="section-body">
+                            <p>Le site sasexpliq.com est pour les personnes:</p>
+                            <ul class="bullet-list">
+                                <li>– qui veulent avoir des informations sur la vie sexuelle, intime et affective</li>
+                                <li>– qui ont des difficultés avec les textes difficiles</li>
+                                <li>– qui ont des difficultés pour lire</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="section-image">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/a-propos/pour-qui.png' ); ?>" alt="Personnes">
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section: Pour quoi? -->
+            <section class="about-section">
+                <div class="section-content">
+                    <div class="section-text">
+                        <div class="tts-readable">
+                            <h2 class="section-title">Pour quoi?</h2>
+                        </div>
+                        <div class="section-body">
+                            <p>La santé sexuelle c'est très important dans la vie d'une personne</p>
+                            <ul class="bullet-list">
+                                <li>– C'est difficile de trouver des informations faciles à comprendre</li>
+                                <li>– Les personnes doivent avoir l'information facilement</li>
+                                <li>– Le droit à l'information doit être gratuit</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="section-image">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/a-propos/pour-quoi.png' ); ?>" alt="Livre">
+                    </div>
+                </div>
+            </section>
+            
             <?php
-            // If comments are open or we have at least one comment, load up the comment template.
-            if ( comments_open() || get_comments_number() ) :
-                comments_template();
+            // If there's additional content from the WordPress editor
+            if (have_posts()) :
+                while (have_posts()) :
+                    the_post();
+                    the_content();
+                endwhile;
             endif;
             ?>
-        </div><!-- .container -->
-    </article><!-- #post-<?php the_ID(); ?> -->
+            
+        </div><!-- .about-content -->
+    </div><!-- .container -->
 </main><!-- #main -->
 
 <?php

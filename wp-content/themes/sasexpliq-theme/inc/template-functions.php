@@ -188,7 +188,7 @@ function sasexpliq_add_theme_logo() {
     }
     
     // Create the logo SVG file if it doesn't exist
-    $logo_file = $logo_dir . '/logo.png';
+    $logo_file = $logo_dir . '/logo-site.svg';
     
     if ( ! file_exists( $logo_file ) ) {
         $logo_svg = '<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -207,7 +207,7 @@ function sasexpliq_add_theme_logo() {
     }
     
     // Copy logo to theme directory
-    $theme_logo_file = $theme_dir . '/logo.png';
+    $theme_logo_file = $theme_dir . '/logo-site.svg';
     
     if ( ! file_exists( $theme_logo_file ) ) {
         copy( $logo_file, $theme_logo_file );

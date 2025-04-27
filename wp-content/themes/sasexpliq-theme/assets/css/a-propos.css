@@ -1,0 +1,104 @@
+/**
+ * Sasexpliq Theme - À propos Page Styles
+ */
+
+/* Page header */
+.a-propos-page .page-header {
+    background-color: var(--color-purple);
+    padding: calc(var(--space-xxl) * 2) 0;
+    margin-bottom: var(--space-xl);
+}
+
+.a-propos-page .page-title {
+    color: white;
+    font-size: 3.5rem;
+    text-align: left;
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+/* About content sections */
+.a-propos-page .about-section {
+    margin-bottom: var(--space-xxl);
+}
+
+.a-propos-page .section-content {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-xl);
+}
+
+.a-propos-page .section-text {
+    flex: 2;
+}
+
+.a-propos-page .section-image {
+    flex: 1;
+    text-align: center;
+}
+
+.a-propos-page .section-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.a-propos-page .section-title {
+    color: var(--color-purple);
+    font-size: var(--font-size-xxl);
+    margin-top: 0;
+    margin-bottom: var(--space-md);
+}
+
+.a-propos-page .section-body {
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+}
+
+.a-propos-page .section-body p {
+    margin-top: 0;
+    margin-bottom: var(--space-md);
+}
+
+/* Bullet lists */
+.a-propos-page .bullet-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.a-propos-page .bullet-list li {
+    margin-bottom: var(--space-sm);
+}
+
+/* Responsive styles */
+@media (max-width: 991px) {
+    .a-propos-page .section-content {
+        flex-direction: column;
+    }
+    
+    .a-propos-page .section-image {
+        margin-top: var(--space-lg);
+        order: -1; /* Move images above text on tablets */
+    }
+}
+
+@media (max-width: 767px) {
+    .a-propos-page .page-title {
+        font-size: var(--font-size-xxl);
+    }
+    
+    .a-propos-page .section-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .a-propos-page .section-body {
+        font-size: var(--font-size-md);
+    }
+}
+
+@media (max-width: 575px) {
+    .a-propos-page .page-header {
+        padding: var(--space-xl) 0;
+    }
+}

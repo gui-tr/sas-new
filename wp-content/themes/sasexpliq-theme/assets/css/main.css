@@ -444,6 +444,8 @@ a:hover, a:focus {
     background-color: var(--color-light-bg);
     border-radius: var(--border-radius-lg);
     padding: var(--space-xl);
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .contact-form {
@@ -499,7 +501,7 @@ a:hover, a:focus {
 
 /* Footer Styles */
 .site-footer {
-    background-color: #212121;
+    background-color: #181818;
     color: white;
     padding: var(--space-xl) 0;
 }

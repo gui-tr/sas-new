@@ -69,6 +69,9 @@ function sasexpliq_scripts() {
     // Enqueue responsive styles
     wp_enqueue_style( 'sasexpliq-responsive', SASEXPLIQ_THEME_URI . '/assets/css/responsive.css', array('sasexpliq-style'), '1.0.0' );
     
+    // Enqueue footer styles
+    wp_enqueue_style( 'sasexpliq-footer', SASEXPLIQ_THEME_URI . '/assets/css/footer.css', array('sasexpliq-style'), '1.0.0' );
+    
     // Enqueue main JavaScript file
     wp_enqueue_script( 'sasexpliq-main', SASEXPLIQ_THEME_URI . '/assets/js/main.js', array('jquery'), '1.0.0', true );
     
@@ -86,6 +89,11 @@ function sasexpliq_scripts() {
     // Load theme and article styles when viewing theme or article post types
     if (is_singular('theme') || is_singular('article')) {
         wp_enqueue_style('sasexpliq-theme-article', SASEXPLIQ_THEME_URI . '/assets/css/theme-article.css', array('sasexpliq-style'), '1.0.0');
+    }
+
+    // Conditionally load the À propos CSS on the appropriate page
+    if (is_page_template('page-a-propos.php') || is_page('a-propos')) {
+        wp_enqueue_style('sasexpliq-a-propos', SASEXPLIQ_THEME_URI . '/assets/css/a-propos.css', array('sasexpliq-style'), '1.0.0');
     }
 }
 add_action( 'wp_enqueue_scripts', 'sasexpliq_scripts' );

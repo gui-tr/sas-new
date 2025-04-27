@@ -30,7 +30,7 @@
                 else :
                 ?>
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo" rel="home">
-                        <img src="<?php echo esc_url( SASEXPLIQ_THEME_URI . '/assets/images/logo.png' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="custom-logo">
+                        <img src="<?php echo esc_url( SASEXPLIQ_THEME_URI . '/assets/images/logo-site.svg' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="custom-logo">
                     </a>
                 <?php endif; ?>
             </div><!-- .site-branding -->

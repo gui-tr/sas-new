@@ -93,7 +93,7 @@ $featured_image = get_the_post_thumbnail_url($theme_id, 'full');
 
         <!-- Back Button -->
         <div class="theme-actions">
-            <a href="<?php echo esc_url(home_url('/')); ?>" class="btn-choose-theme">
+            <a href="<?php echo esc_url(home_url('/#themes')); ?>" class="btn-choose-theme">
                 <?php _e('Choisir un autre thème', 'sasexpliq'); ?>
             </a>
         </div>

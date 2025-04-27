@@ -20,7 +20,7 @@ get_header();
         </div>
     </section>
 
-    <section class="themes-section">
+    <section id="themes" class="themes-section">
         <div class="container">
             <h2 class="section-title">Thèmes</h2>
             
