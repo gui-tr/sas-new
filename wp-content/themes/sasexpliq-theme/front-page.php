@@ -105,7 +105,7 @@ get_header();
 
     <section class="contact-section">
         <div class="container">
-            <div style="text-align: center;">
+            <div style="text-align: center; margin-bottom: 30px;">
                 <div class="tts-readable">
                     <h2 class="section-title">Tu veux nous écrire?</h2>
                 </div>

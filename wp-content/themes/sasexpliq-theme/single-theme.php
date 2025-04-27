@@ -25,7 +25,9 @@ $featured_image = get_the_post_thumbnail_url($theme_id, 'full');
     <div class="theme-banner" style="background-color: var(--color-<?php echo esc_attr($color_class); ?>);">
         <div class="container">
             <div class="theme-banner-content">
-                <h1 class="theme-title"><?php echo esc_html($theme_title); ?></h1>
+                <div class="tts-readable">
+                    <h1 class="theme-title"><?php echo esc_html($theme_title); ?></h1>
+                </div>
                 
                 <?php if ($featured_image) : ?>
                 <div class="theme-banner-image">

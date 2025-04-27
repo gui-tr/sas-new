@@ -482,7 +482,7 @@ a:hover, a:focus {
     border: 1px solid #ddd;
     border-radius: var(--border-radius-md);
     font-family: inherit;
-    font-size: inherit;
+    font-size: var(--font-size-lg);
 }
 
 .form-group input:focus,
