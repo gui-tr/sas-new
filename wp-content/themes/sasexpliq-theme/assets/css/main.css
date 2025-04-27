@@ -42,7 +42,7 @@
     --space-xxl: 3rem;
     
     /* Typography */
-    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    --font-primary: 'Poppins', sans-serif;
     --font-size-base: 16px;
     --font-size-sm: 0.875rem;
     --font-size-md: 1rem;
@@ -79,6 +79,16 @@ body {
     color: var(--color-text);
     background-color: var(--color-background);
     overflow-x: hidden;
+    font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6,
+.site-title,
+.entry-title,
+.widget-title,
+.main-navigation {
+    font-family: var(--font-primary);
+    font-weight: 600;
 }
 
 img {
@@ -190,7 +200,9 @@ a:hover, a:focus {
 
 .nav-menu a {
     color: var(--color-text);
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
 }
 
 .nav-menu a:hover,
@@ -260,10 +272,10 @@ a:hover, a:focus {
 }
 
 .hero-title {
-    font-size: var(--font-size-xxxl);
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--color-primary);
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: #5a1991;
     margin-bottom: var(--space-lg);
 }
 
@@ -276,7 +288,7 @@ a:hover, a:focus {
 /* Themes Section */
 .themes-section {
     padding: var(--space-xxl) 0;
-    background-color: var(--color-light-bg);
+    background-color: white;
 }
 
 .section-title {

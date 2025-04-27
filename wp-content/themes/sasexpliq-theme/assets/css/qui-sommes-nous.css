@@ -55,30 +55,34 @@
 }
 
 .qui-sommes-nous-page .team-member {
-    background-color: #f5f0fa;
+    background-color: #F1F2F8;
     border-radius: var(--border-radius-md);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    padding-bottom: 60px;
 }
 
 .qui-sommes-nous-page .team-member:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
+    transform: none;
+    box-shadow: var(--shadow-sm);
 }
 
 .qui-sommes-nous-page .team-member-image {
     width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
 }
 
 .qui-sommes-nous-page .team-member-image img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
 }
 
 .qui-sommes-nous-page .team-member-info {
-    padding: var(--space-lg);
+    padding: var(--space-md);
 }
 
 .qui-sommes-nous-page .team-member-name {
@@ -105,7 +109,9 @@
 }
 
 .qui-sommes-nous-page .team-member-social {
-    display: flex;
+    position: absolute;
+    bottom: var(--space-md);
+    left: var(--space-md);
 }
 
 .qui-sommes-nous-page .social-link {
@@ -116,6 +122,11 @@
     justify-content: center;
     background-color: var(--color-purple);
     border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.qui-sommes-nous-page .social-link:hover {
+    background-color: var(--color-orange);
 }
 
 .qui-sommes-nous-page .social-link svg {

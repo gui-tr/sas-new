@@ -35,8 +35,6 @@ get_header();
             </section>
 
             <section class="team-section">
-                <h2 class="section-title">Notre équipe</h2>
-                
                 <div class="team-members">
                     <!-- Team Member 1 -->
                     <div class="team-member">
