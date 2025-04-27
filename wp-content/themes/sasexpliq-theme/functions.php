@@ -91,6 +91,24 @@ function sasexpliq_scripts() {
 add_action( 'wp_enqueue_scripts', 'sasexpliq_scripts' );
 
 /**
+ * Filter to ensure "Accueil" menu item links to homepage
+ */
+function sasexpliq_filter_nav_menu_items($items, $args) {
+    // Only apply to primary menu
+    if ($args->theme_location == 'primary') {
+        foreach ($items as $item) {
+            // Check if the menu item title is "Accueil"
+            if ($item->title == 'Accueil') {
+                // Set the URL to the homepage
+                $item->url = home_url('/');
+            }
+        }
+    }
+    return $items;
+}
+add_filter('wp_nav_menu_objects', 'sasexpliq_filter_nav_menu_items', 10, 2);
+
+/**
  * Register widget area.
  */
 function sasexpliq_widgets_init() {

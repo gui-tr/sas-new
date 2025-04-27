@@ -198,6 +198,28 @@ a:hover, a:focus {
     position: relative;
 }
 
+/* Add dropdown arrow for menu items with submenus */
+.nav-menu li.menu-item-has-children > a {
+    padding-right: 20px;
+    position: relative;
+}
+
+.nav-menu li.menu-item-has-children > a:after {
+    content: "▼";
+    display: inline-block;
+    font-size: 0.8em;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform var(--transition-fast);
+}
+
+/* Rotate arrow when submenu is open */
+.nav-menu li.menu-item-has-children:hover > a:after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
 .nav-menu a {
     color: var(--color-text);
     font-weight: 600;
@@ -223,10 +245,12 @@ a:hover, a:focus {
     display: none;
     z-index: 10;
     padding: var(--space-sm) 0;
+    list-style: none;
 }
 
 .nav-menu .sub-menu li {
     margin: 0;
+    list-style: none;
 }
 
 .nav-menu .sub-menu a {

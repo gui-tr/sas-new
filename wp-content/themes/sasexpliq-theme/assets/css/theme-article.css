@@ -6,7 +6,7 @@
 
 /* Theme Banner */
 .theme-banner {
-    padding: var(--space-xxl) 0;
+    padding: var(--space-sm) 0;
     margin-bottom: var(--space-xl);
     color: #000;
 }
@@ -18,16 +18,25 @@
 }
 
 .theme-title {
-    font-size: var(--font-size-xxxl);
+    font-size: 3.5rem;
     font-weight: 700;
     flex: 1;
     margin: 0;
+    line-height: 1.1;
+}
+
+/* Theme-specific title colors */
+.theme-purple .theme-title,
+.theme-blue .theme-title,
+.theme-green .theme-title,
+.theme-pink .theme-title {
+    color: white;
 }
 
 .theme-banner-image {
-    flex: 1;
+    flex: 1.5;
     text-align: right;
-    max-width: 300px;
+    max-width: 500px;
 }
 
 .theme-banner-image img {

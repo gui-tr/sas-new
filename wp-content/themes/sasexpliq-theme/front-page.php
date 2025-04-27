@@ -60,10 +60,9 @@ get_header();
                 );
 
                 foreach ( $themes as $theme ) :
-                    $theme_url = get_term_link( $theme['slug'], 'theme_color' );
-                    if ( is_wp_error( $theme_url ) ) {
-                        $theme_url = '#';
-                    }
+                    // Get the theme page URL based on the slug
+                    $theme_page = get_page_by_path($theme['slug'], OBJECT, 'theme');
+                    $theme_url = $theme_page ? get_permalink($theme_page->ID) : '#';
                 ?>
                 <div class="theme-card theme-card-<?php echo esc_attr( $theme['color'] ); ?>">
                     <a href="<?php echo esc_url( $theme_url ); ?>" class="theme-card-link">

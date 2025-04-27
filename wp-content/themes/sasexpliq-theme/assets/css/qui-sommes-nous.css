@@ -5,15 +5,17 @@
 /* Page header */
 .qui-sommes-nous-page .page-header {
     background-color: var(--color-purple);
-    padding: var(--space-xxl) 0;
+    padding: var(--space-xl) 0;
     margin-bottom: var(--space-xl);
 }
 
 .qui-sommes-nous-page .page-title {
     color: white;
-    font-size: var(--font-size-xxxl);
-    text-align: center;
+    font-size: 3.5rem;
+    text-align: left;
     margin: 0;
+    font-weight: 600;
+    line-height: 1.1;
 }
 
 /* Association section */
