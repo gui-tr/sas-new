@@ -292,6 +292,80 @@ function sasexpliq_update_theme_color_taxonomy() {
 add_action( 'init', 'sasexpliq_update_theme_color_taxonomy', 11 ); // Priority 11 to run after the taxonomy registration
 
 /**
+ * Change the theme_color taxonomy labels to be more user-friendly
+ */
+function sasexpliq_rename_theme_color_taxonomy() {
+    global $wp_taxonomies;
+    
+    if (isset($wp_taxonomies['theme_color'])) {
+        $labels = &$wp_taxonomies['theme_color']->labels;
+        
+        $labels->name = 'Thèmes';
+        $labels->singular_name = 'Thème';
+        $labels->search_items = 'Rechercher les thèmes';
+        $labels->all_items = 'Tous les thèmes';
+        $labels->edit_item = 'Modifier le thème';
+        $labels->update_item = 'Mettre à jour le thème';
+        $labels->add_new_item = 'Ajouter un nouveau thème';
+        $labels->new_item_name = 'Nouveau thème';
+        $labels->menu_name = 'Thèmes';
+    }
+}
+add_action('init', 'sasexpliq_rename_theme_color_taxonomy', 1000);
+
+// /**
+//  * Modify article post type to include theme in URL structure
+//  */
+// function sasexpliq_modify_article_permalink($post_link, $post) {
+//     if ($post->post_type === 'article') {
+//         // Get the theme color terms for this article
+//         $terms = get_the_terms($post->ID, 'theme_color');
+        
+//         if ($terms && !is_wp_error($terms)) {
+//             $theme_slug = $terms[0]->slug;
+            
+//             // Get the theme post that matches this term
+//             $theme_args = array(
+//                 'post_type' => 'theme',
+//                 'posts_per_page' => 1,
+//                 'tax_query' => array(
+//                     array(
+//                         'taxonomy' => 'theme_color',
+//                         'field' => 'slug',
+//                         'terms' => $theme_slug,
+//                     ),
+//                 ),
+//             );
+            
+//             $theme_query = new WP_Query($theme_args);
+//             if ($theme_query->have_posts()) {
+//                 $theme_query->the_post();
+//                 $theme_post_name = get_post_field('post_name', get_the_ID());
+//                 wp_reset_postdata();
+                
+//                 // Replace the "article" part with "theme/theme-name"
+//                 $post_link = str_replace('article/', 'theme/' . $theme_post_name . '/', $post_link);
+//             }
+//         }
+//     }
+    
+//     return $post_link;
+// }
+// add_filter('post_type_link', 'sasexpliq_modify_article_permalink', 10, 2);
+
+// /**
+//  * Add a rewrite rule to handle the new URL structure
+//  */
+// function sasexpliq_add_article_rewrite_rules() {
+//     add_rewrite_rule(
+//         'theme/([^/]+)/([^/]+)/?$',
+//         'index.php?post_type=article&name=$2',
+//         'top'
+//     );
+// }
+// add_action('init', 'sasexpliq_add_article_rewrite_rules');
+
+/**
  * Include additional files
  */
 require SASEXPLIQ_THEME_DIR . '/inc/template-functions.php';
