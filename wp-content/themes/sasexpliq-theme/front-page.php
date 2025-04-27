@@ -1,0 +1,122 @@
+<?php
+/**
+ * The template for displaying the front page
+ */
+
+get_header();
+?>
+
+<main id="primary" class="site-main">
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">L'éducation sexuelle facile à comprendre</h1>
+                </div>
+                <div class="hero-image">
+                    <img src="<?php echo esc_url( SASEXPLIQ_THEME_URI . '/assets/images/hero-couple.png' ); ?>" alt="Couple illustration">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="themes-section">
+        <div class="container">
+            <h2 class="section-title">Thèmes</h2>
+            
+            <div class="themes-grid">
+                <?php
+                $themes = array(
+                    array(
+                        'title' => 'La sexualité',
+                        'color' => 'purple',
+                        'slug' => 'la-sexualite'
+                    ),
+                    array(
+                        'title' => 'Les relations',
+                        'color' => 'orange',
+                        'slug' => 'les-relations'
+                    ),
+                    array(
+                        'title' => 'Le corps',
+                        'color' => 'blue',
+                        'slug' => 'le-corps'
+                    ),
+                    array(
+                        'title' => 'Être soi',
+                        'color' => 'yellow',
+                        'slug' => 'etre-soi'
+                    ),
+                    array(
+                        'title' => 'Les droits sexuels',
+                        'color' => 'pink',
+                        'slug' => 'les-droits-sexuels'
+                    ),
+                    array(
+                        'title' => 'Divers',
+                        'color' => 'green',
+                        'slug' => 'divers'
+                    ),
+                );
+
+                foreach ( $themes as $theme ) :
+                    $theme_url = get_term_link( $theme['slug'], 'theme_color' );
+                    if ( is_wp_error( $theme_url ) ) {
+                        $theme_url = '#';
+                    }
+                ?>
+                <div class="theme-card theme-card-<?php echo esc_attr( $theme['color'] ); ?>">
+                    <a href="<?php echo esc_url( $theme_url ); ?>" class="theme-card-link">
+                        <div class="theme-card-icon">
+                            <!-- Icon is created with CSS based on the theme color -->
+                        </div>
+                        <h3 class="theme-card-title"><?php echo esc_html( $theme['title'] ); ?></h3>
+                    </a>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Tu veux nous écrire?</h2>
+            
+            <div class="contact-form-container">
+                <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" class="contact-form">
+                    <?php wp_nonce_field( 'sasexpliq_contact_form', 'sasexpliq_contact_nonce' ); ?>
+                    <input type="hidden" name="action" value="sasexpliq_contact_form">
+                    
+                    <div class="form-group">
+                        <input type="text" name="name" id="name" placeholder="Nom" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" name="email" id="email" placeholder="Email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea name="message" id="message" placeholder="Message" rows="5" required></textarea>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </div>
+                    
+                    <?php if ( isset( $_GET['contact'] ) ) : ?>
+                        <div class="form-message <?php echo esc_attr( $_GET['contact'] ); ?>">
+                            <?php if ( $_GET['contact'] === 'success' ) : ?>
+                                <p>Merci pour votre message! Nous vous répondrons bientôt.</p>
+                            <?php else : ?>
+                                <p>Une erreur s'est produite. Veuillez réessayer plus tard.</p>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<?php
+get_footer();

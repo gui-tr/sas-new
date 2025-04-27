@@ -1,0 +1,154 @@
+/**
+ * Sasexpliq Theme - Qui sommes-nous Page Styles
+ */
+
+/* Page header */
+.qui-sommes-nous-page .page-header {
+    background-color: var(--color-purple);
+    padding: var(--space-xxl) 0;
+    margin-bottom: var(--space-xl);
+}
+
+.qui-sommes-nous-page .page-title {
+    color: white;
+    font-size: var(--font-size-xxxl);
+    text-align: center;
+    margin: 0;
+}
+
+/* Association section */
+.qui-sommes-nous-page .association-section {
+    margin-bottom: var(--space-xxl);
+}
+
+.qui-sommes-nous-page .section-title {
+    color: var(--color-purple);
+    font-size: var(--font-size-xxl);
+    margin-bottom: var(--space-lg);
+    font-weight: 700;
+}
+
+.qui-sommes-nous-page .association-content {
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+}
+
+.qui-sommes-nous-page .association-list {
+    list-style: none;
+    padding-left: 0;
+    margin: var(--space-md) 0;
+}
+
+.qui-sommes-nous-page .association-list li {
+    margin-bottom: var(--space-sm);
+}
+
+/* Team section */
+.qui-sommes-nous-page .team-section {
+    margin-bottom: var(--space-xxl);
+}
+
+.qui-sommes-nous-page .team-members {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+}
+
+.qui-sommes-nous-page .team-member {
+    background-color: #f5f0fa;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.qui-sommes-nous-page .team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.qui-sommes-nous-page .team-member-image {
+    width: 100%;
+}
+
+.qui-sommes-nous-page .team-member-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.qui-sommes-nous-page .team-member-info {
+    padding: var(--space-lg);
+}
+
+.qui-sommes-nous-page .team-member-name {
+    color: var(--color-orange);
+    font-size: var(--font-size-lg);
+    margin: 0;
+    margin-bottom: var(--space-xs);
+    font-weight: 700;
+}
+
+.qui-sommes-nous-page .team-member-role {
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: var(--space-md);
+}
+
+.qui-sommes-nous-page .team-member-details {
+    margin-bottom: var(--space-md);
+}
+
+.qui-sommes-nous-page .team-member-details p {
+    margin: 0;
+    margin-bottom: var(--space-xs);
+}
+
+.qui-sommes-nous-page .team-member-social {
+    display: flex;
+}
+
+.qui-sommes-nous-page .social-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-purple);
+    border-radius: 4px;
+}
+
+.qui-sommes-nous-page .social-link svg {
+    color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .qui-sommes-nous-page .team-members {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .qui-sommes-nous-page .page-title {
+        font-size: var(--font-size-xxl);
+    }
+    
+    .qui-sommes-nous-page .section-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .qui-sommes-nous-page .association-content {
+        font-size: var(--font-size-md);
+    }
+}
+
+@media (max-width: 576px) {
+    .qui-sommes-nous-page .team-members {
+        grid-template-columns: 1fr;
+    }
+    
+    .qui-sommes-nous-page .page-header {
+        padding: var(--space-xl) 0;
+    }
+}
