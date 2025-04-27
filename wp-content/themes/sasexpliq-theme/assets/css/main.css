@@ -595,3 +595,44 @@ a:hover, a:focus {
         margin-right: -125px;
     }
 }
+
+/* Fixed footer layout */
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#page {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#primary {
+    flex: 1 0 auto;
+}
+
+.site-footer {
+    margin-top: auto;   
+}
+
+/* Ensure content fills at least viewport height */
+.site-main {
+    min-height: 70vh; /* This gives some minimum space between header and footer */
+}
+
+/* For article pages with minimal content */
+.article-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 70vh;
+}
+
+.article-content {
+    flex-grow: 1;
+}
