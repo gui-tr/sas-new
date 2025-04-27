@@ -1,0 +1,62 @@
+# WordPress core files to ignore
+wp-config.php
+wp-content/advanced-cache.php
+wp-content/backup-db/
+wp-content/backups/
+wp-content/blogs.dir/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/uploads/
+wp-content/mu-plugins/
+wp-content/wp-cache-config.php
+wp-content/plugins/hello.php
+
+# WordPress debugging
+*.log
+debug.log
+
+# WordPress database
+*.sql
+*.sqlite
+
+# WordPress specific files
+.htaccess
+sitemap.xml
+sitemap.xml.gz
+sitemap.html
+sitemap.html.gz
+
+# Operating System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Node modules and build files (if using any build tools)
+node_modules/
+dist/
+build/
+vendor/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Local development files
+local-xdebuginfo.php 
