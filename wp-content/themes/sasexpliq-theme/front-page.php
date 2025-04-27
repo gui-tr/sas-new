@@ -11,7 +11,7 @@ get_header();
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title">L'éducation sexuelle facile<br>à comprendre</h1>
+                    <h1 class="hero-title tts-readable">L'éducation sexuelle facile<br>à comprendre</h1>
                 </div>
                 <div class="hero-image">
                     <img src="<?php echo esc_url( SASEXPLIQ_THEME_URI . '/assets/images/hero-couple.png' ); ?>" alt="Couple illustration">
@@ -105,7 +105,9 @@ get_header();
 
     <section class="contact-section">
         <div class="container">
-            <h2 class="section-title">Tu veux nous écrire?</h2>
+            <div style="text-align: center;">
+                <h2 class="section-title tts-readable">Tu veux nous écrire?</h2>
+            </div>
             
             <div class="contact-form-container">
                 <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" class="contact-form">
