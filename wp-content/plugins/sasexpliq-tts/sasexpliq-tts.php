@@ -42,7 +42,7 @@ function sasexpliq_tts_add_script() {
                 .tts-button {
                     width: 30px;
                     height: 30px;
-                    background-color: #f05519;
+                    background-color: #000000;
                     border: none;
                     border-radius: 50%;
                     cursor: pointer;
@@ -52,7 +52,7 @@ function sasexpliq_tts_add_script() {
                     transition: background-color 0.3s ease;
                 }
                 .tts-button:hover {
-                    background-color: #d94a15;
+                    background-color: #333333;
                 }
                 .tts-button svg {
                     color: white;
