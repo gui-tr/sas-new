@@ -360,6 +360,7 @@ a:hover, a:focus {
     display: flex;
     flex-direction: column;
     position: relative;
+    margin-bottom: 60px; /* Add margin to accommodate the title */
 }
 
 .theme-card-link {
@@ -403,11 +404,14 @@ a:hover, a:focus {
     margin-top: var(--space-lg);
     color: #000000;
     padding: 0 var(--space-md);
-    margin-bottom: var(--space-md);
     position: absolute;
-    bottom: -50px;
+    bottom: 0;
     left: 0;
     right: 0;
+    transform: translateY(100%); /* Move title below the card */
+    min-height: 60px; /* Ensure consistent height for the title area */
+    display: flex;
+    align-items: center;
 }
 
 /* Theme Card Colors */

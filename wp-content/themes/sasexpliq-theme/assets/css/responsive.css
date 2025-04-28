@@ -156,9 +156,12 @@
         gap: calc(var(--space-xl) * 2.5);
     }
     
+    .theme-card {
+        margin-bottom: 70px; /* Slightly more space on mobile for longer titles */
+    }
+    
     .theme-card-title {
         font-size: 1.3rem;
-        bottom: -50px;
-        margin-bottom: var(--space-md);
+        min-height: 70px; /* Match the margin-bottom */
     }
 }
