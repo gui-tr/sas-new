@@ -646,6 +646,7 @@ body {
 /* Ensure content fills at least viewport height */
 .site-main {
     min-height: 70vh; /* This gives some minimum space between header and footer */
+    padding-bottom: var(--space-xxl);
 }
 
 /* For article pages with minimal content */
