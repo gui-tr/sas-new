@@ -305,3 +305,7 @@
 [data-theme="dark"] .article-card {
     border-color: #FFFFFF;
 }
+
+[data-theme="dark"] .article-card .article-title {
+    color: #FFFFFF;
+}

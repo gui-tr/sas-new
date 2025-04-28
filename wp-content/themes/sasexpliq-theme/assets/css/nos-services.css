@@ -1,0 +1,11 @@
+.service-section .section-body {
+    font-size: var(--font-size-body);
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+}
+
+@media (max-width: 767px) {
+    .service-section .section-body {
+        font-size: var(--font-size-body);
+    }
+} 

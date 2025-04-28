@@ -50,6 +50,7 @@
     --font-size-xl: 1.5rem;
     --font-size-xxl: 2rem;
     --font-size-xxxl: 3rem;
+    --font-size-body: 1.25rem; /* New variable for body text size (20px) */
     
     /* Border Radius */
     --border-radius-sm: 4px;
@@ -501,6 +502,12 @@ a:hover, a:focus {
     border-color: var(--color-primary);
 }
 
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    font-size: 16px;
+    color: #999;
+}
+
 .form-submit {
     margin-top: var(--space-md);
 }
@@ -519,6 +526,11 @@ a:hover, a:focus {
 .form-message.error {
     background-color: #f8d7da;
     color: #721c24;
+}
+
+.contact-form .form-submit .btn-primary {
+    font-size: 16px;
+    padding: 12px 24px;
 }
 
 /* Footer Styles */

@@ -28,12 +28,12 @@
     
     .hero-content {
         flex-direction: column;
-        text-align: center;
     }
     
     .hero-text {
         padding-right: 0;
         margin-bottom: var(--space-xl);
+        text-align: left;
     }
     
     .hero-image {
@@ -125,6 +125,11 @@
     .hero-title {
         font-size: 2rem;
     }
+    
+    /* Hide line break in hero title on mobile */
+    .hero-title br {
+        display: none;
+    }
 }
 
 /* Small Mobile Devices (up to 575px) */
@@ -135,6 +140,11 @@
     
     .hero-title {
         font-size: 1.75rem;
+    }
+    
+    /* Hide line break in hero title on small mobile */
+    .hero-title br {
+        display: none;
     }
     
     .section-title {

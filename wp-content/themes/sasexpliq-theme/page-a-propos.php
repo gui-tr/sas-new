@@ -53,7 +53,7 @@ get_header();
                         <div class="section-body">
                             <p>Le site sasexpliq.com est pour les personnes:</p>
                             <ul class="bullet-list">
-                                <li>qui veulent avoir des informations sur la vie sexuelle,<br>intime et affective</li>
+                                <li>qui veulent avoir des informations sur la vie sexuelle, <br>intime et affective</li>
                                 <li>qui ont des difficultés avec les textes difficiles</li>
                                 <li>qui ont des difficultés pour lire</li>
                             </ul>

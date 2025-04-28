@@ -35,8 +35,9 @@
 }
 
 .qui-sommes-nous-page .association-section .section-body {
-    font-size: 20px;
+    font-size: var(--font-size-body);
     line-height: 1.6;
+    margin-bottom: var(--space-lg);
 }
 
 .qui-sommes-nous-page .association-content {
@@ -172,5 +173,11 @@
     
     .qui-sommes-nous-page .page-header {
         padding: var(--space-xl) 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .association-section .section-body {
+        font-size: var(--font-size-body);
     }
 }

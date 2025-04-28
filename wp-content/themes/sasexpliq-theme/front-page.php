@@ -11,7 +11,7 @@ get_header();
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title tts-readable">L'éducation sexuelle facile<br>à comprendre</h1>
+                    <h1 class="hero-title tts-readable">L'éducation sexuelle facile <br>à comprendre</h1>
                 </div>
                 <div class="hero-image">
                     <img src="<?php echo esc_url( SASEXPLIQ_THEME_URI . '/assets/images/hero-couple.png' ); ?>" alt="Couple illustration">
