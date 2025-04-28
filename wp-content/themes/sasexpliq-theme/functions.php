@@ -75,6 +75,9 @@ function sasexpliq_scripts() {
     // Enqueue main JavaScript file
     wp_enqueue_script( 'sasexpliq-main', SASEXPLIQ_THEME_URI . '/assets/js/main.js', array('jquery'), '1.0.0', true );
     
+    // Enqueue dark mode JavaScript
+    wp_enqueue_script( 'sasexpliq-dark-mode', SASEXPLIQ_THEME_URI . '/assets/js/dark-mode.js', array(), '1.0.0', true );
+    
     // Localize script for AJAX
     wp_localize_script( 'sasexpliq-main', 'sasexpliq_ajax', array(
         'ajax_url' => admin_url( 'admin-ajax.php' ),

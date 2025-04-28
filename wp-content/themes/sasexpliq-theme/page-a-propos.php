@@ -29,11 +29,11 @@ get_header();
                         <div class="section-body">
                             <p>Tu trouveras des informations:</p>
                             <ul class="bullet-list">
-                                <li>– sur la santé sexuelle</li>
-                                <li>– sur le corps</li>
-                                <li>– sur les relations</li>
-                                <li>– sur les droits sexuels</li>
-                                <li>– et encore plein d'autres thèmes</li>
+                                <li>sur la santé sexuelle</li>
+                                <li>sur le corps</li>
+                                <li>sur les relations</li>
+                                <li>sur les droits sexuels</li>
+                                <li>et encore plein d'autres thèmes</li>
                             </ul>
                         </div>
                     </div>
@@ -53,9 +53,9 @@ get_header();
                         <div class="section-body">
                             <p>Le site sasexpliq.com est pour les personnes:</p>
                             <ul class="bullet-list">
-                                <li>– qui veulent avoir des informations sur la vie sexuelle, intime et affective</li>
-                                <li>– qui ont des difficultés avec les textes difficiles</li>
-                                <li>– qui ont des difficultés pour lire</li>
+                                <li>qui veulent avoir des informations sur la vie sexuelle,<br>intime et affective</li>
+                                <li>qui ont des difficultés avec les textes difficiles</li>
+                                <li>qui ont des difficultés pour lire</li>
                             </ul>
                         </div>
                     </div>
@@ -75,9 +75,9 @@ get_header();
                         <div class="section-body">
                             <p>La santé sexuelle c'est très important dans la vie d'une personne</p>
                             <ul class="bullet-list">
-                                <li>– C'est difficile de trouver des informations faciles à comprendre</li>
-                                <li>– Les personnes doivent avoir l'information facilement</li>
-                                <li>– Le droit à l'information doit être gratuit</li>
+                                <li>C'est difficile de trouver des informations faciles à comprendre</li>
+                                <li>Les personnes doivent avoir l'information facilement</li>
+                                <li>Le droit à l'information doit être gratuit</li>
                             </ul>
                         </div>
                     </div>

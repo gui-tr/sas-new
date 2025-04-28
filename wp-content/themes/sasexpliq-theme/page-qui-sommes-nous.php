@@ -39,6 +39,8 @@ get_header();
                 </div>
             </section>
 
+            <div class="section-spacer"></div>
+
             <section class="team-section">
                 <div class="section-text">
                     <div class="section-body">

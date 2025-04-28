@@ -20,7 +20,11 @@
 
 /* Association section */
 .qui-sommes-nous-page .association-section {
-    margin-bottom: var(--space-xxl);
+    /* margin-bottom: var(--space-xxl); */ /* Removed as this is now handled globally */
+}
+
+.qui-sommes-nous-page .section-spacer {
+    height: var(--space-xxl);
 }
 
 .qui-sommes-nous-page .section-title {

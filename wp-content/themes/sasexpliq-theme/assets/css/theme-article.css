@@ -60,7 +60,7 @@
 }
 
 .article-card {
-    border: 1px solid #e0e0e0;
+    border: 1px solid #000000;
     border-radius: var(--border-radius-md);
     overflow: hidden;
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
@@ -183,7 +183,7 @@
 
 /* Article Content */
 .article-content {
-    margin-bottom: var(--space-xxl);
+    /* margin-bottom: var(--space-xxl); */ /* Removed as this is now handled globally */
 }
 
 .article-featured-image {
@@ -231,6 +231,10 @@
     .articles-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .theme-title {
+        padding-top: var(--space-xl);
+    }
 }
 
 @media (max-width: 767px) {
@@ -240,6 +244,20 @@
     
     .article-title {
         font-size: var(--font-size-xl);
+    }
+    
+    .theme-banner {
+        padding: var(--space-xl) 0;
+    }
+    
+    .theme-banner-image {
+        max-width: 50%;
+        margin: var(--space-lg) auto 0;
+    }
+    
+    .theme-banner-image img {
+        width: 100%;
+        height: auto;
     }
 }
 
@@ -252,11 +270,15 @@
     .btn-back-to-theme {
         width: 100%;
     }
+    
+    .theme-banner-image {
+        max-width: 50%;
+    }
 }
 
 /* Theme-specific color styles */
 .theme-yellow .article-card .article-title {
-    color: var(--color-yellow);
+    color: #000000;
 }
 
 .theme-purple .article-card .article-title {
@@ -277,4 +299,9 @@
 
 .theme-green .article-card .article-title {
     color: var(--color-green);
+}
+
+/* Dark Mode Specific Styles */
+[data-theme="dark"] .article-card {
+    border-color: #FFFFFF;
 }
