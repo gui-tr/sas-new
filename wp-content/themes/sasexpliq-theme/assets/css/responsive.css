@@ -153,7 +153,6 @@
     
     .themes-grid {
         grid-template-columns: 1fr;
-        gap: calc(var(--space-xl) * 2.5);
     }
     
     .theme-card {

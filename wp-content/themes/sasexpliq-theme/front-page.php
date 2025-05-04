@@ -22,7 +22,9 @@ get_header();
 
     <section id="themes" class="themes-section">
         <div class="container">
-            <h2 class="section-title tts-readable">Thèmes</h2>
+            <div class="tts-readable">
+                <h2 class="section-title">Thèmes</h2>
+            </div>
             
             <div class="themes-grid">
                 <?php
