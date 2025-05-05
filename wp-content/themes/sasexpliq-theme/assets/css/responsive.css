@@ -151,8 +151,10 @@
         font-size: 1.5rem;
     }
     
+    /* Keep 2-column grid layout for small mobile */
     .themes-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
     }
     
     .theme-card {
@@ -162,5 +164,11 @@
     .theme-card-title {
         font-size: 1.3rem;
         min-height: 70px; /* Match the margin-bottom */
+    }
+
+    /* Adjust theme card icon size for small mobile with 2-column layout */
+    .theme-card-icon img {
+        max-width: 120px;
+        max-height: 120px;
     }
 }

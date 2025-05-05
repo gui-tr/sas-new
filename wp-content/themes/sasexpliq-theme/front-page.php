@@ -74,25 +74,25 @@ get_header();
                             $svg_filename = '';
                             switch ($theme['slug']) {
                                 case 'la-sexualite':
-                                    $svg_filename = 'sexualite.svg';
+                                    $svg_filename = 'fav-card.png';
                                     break;
                                 case 'les-relations':
-                                    $svg_filename = 'relations.svg';
+                                    $svg_filename = 'fav-card.png';
                                     break;
                                 case 'le-corps':
-                                    $svg_filename = 'corps.svg';
+                                    $svg_filename = 'fav-card.png';
                                     break;
                                 case 'etre-soi':
-                                    $svg_filename = 'etre-soi.svg';
+                                    $svg_filename = 'fav-card.png';
                                     break;
                                 case 'les-droits-sexuels':
-                                    $svg_filename = 'droits.svg';
+                                    $svg_filename = 'fav-card.png';
                                     break;
                                 case 'divers':
-                                    $svg_filename = 'divers.svg';
+                                    $svg_filename = 'fav-card.png';
                                     break;
                                 default:
-                                    $svg_filename = 'sexualite.svg';
+                                    $svg_filename = 'fav-card.png';
                             }
                             ?>
                             <img src="<?php echo esc_url( SASEXPLIQ_THEME_URI . '/assets/images/themes/' . $svg_filename ); ?>" alt="<?php echo esc_attr( $theme['title'] ); ?> icon">
