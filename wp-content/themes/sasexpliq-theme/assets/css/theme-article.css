@@ -95,6 +95,8 @@
     font-weight: 600;
     margin-top: 0;
     margin-bottom: var(--space-md);
+    padding: 0;
+    text-align: left;
 }
 
 .article-card .article-excerpt {
@@ -141,8 +143,15 @@
     color: #000;
 }
 
+.article-header .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 0px;
+}
+
 .article-breadcrumb {
     margin-bottom: var(--space-md);
+    padding: 0 20px;
 }
 
 .breadcrumb-link {
@@ -186,15 +195,19 @@
     font-size: var(--font-size-xxl);
     font-weight: 700;
     margin: 0;
+    padding: 0 20px;
 }
 
 /* Article Content */
 .article-content {
-    /* margin-bottom: var(--space-xxl); */ /* Removed as this is now handled globally */
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .article-featured-image {
     margin-bottom: var(--space-xl);
+    max-width: 100%;
 }
 
 .article-featured-image img {
@@ -205,7 +218,9 @@
 
 .article-entry {
     font-size: var(--font-size-lg);
-    line-height: 1.6;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .article-entry p {
@@ -214,7 +229,9 @@
 
 /* Related Articles */
 .related-articles {
-    margin-bottom: var(--space-xxl);
+    margin: var(--space-xxl) auto;
+    max-width: 700px;
+    padding: 0 20px;
 }
 
 .related-title {
