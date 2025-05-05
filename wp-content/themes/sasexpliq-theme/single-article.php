@@ -16,7 +16,7 @@ $theme_obj = null;
 if (!empty($theme_terms)) {
     $args = array(
         'post_type' => 'theme',
-        'posts_per_page' => 1,
+        'posts_per_page' => 1, 
         'tax_query' => array(
             array(
                 'taxonomy' => 'theme_color',
@@ -46,7 +46,7 @@ if (!empty($theme_terms)) {
             <?php if ($theme_obj) : ?>
             <div class="article-breadcrumb">
                 <a href="<?php echo esc_url($theme_obj['url']); ?>" class="breadcrumb-link">
-                    &larr; <?php echo esc_html($theme_obj['title']); ?>
+                    &#x1F878;
                 </a>
             </div>
             <?php endif; ?>
@@ -114,7 +114,7 @@ if (!empty($theme_terms)) {
         <?php if ($theme_obj) : ?>
         <div class="theme-actions">
             <a href="<?php echo esc_url($theme_obj['url']); ?>" class="btn-back-to-theme">
-                <?php _e('Retour à ', 'sasexpliq'); ?> <?php echo esc_html($theme_obj['title']); ?>
+                <?php _e('&#x1F878; Retour à ', 'sasexpliq'); ?> <?php echo esc_html($theme_obj['title']); ?>
             </a>
         </div>
         <?php endif; ?>

@@ -158,11 +158,19 @@
     color: #000;
     font-weight: 500;
     text-decoration: none;
+    font-size: 1.1rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: var(--border-radius-md);
+    transition: background-color var(--transition-fast);
 }
 
 .breadcrumb-link:hover {
-    text-decoration: underline;
+    background-color: rgba(0, 0, 0, 0.1);
     color: #000;
+    text-decoration: none;
 }
 
 /* Make text white for specific themes */
@@ -176,7 +184,11 @@
 .theme-green .article-header .breadcrumb-link,
 .theme-pink .article-header .breadcrumb-link,
 .theme-blue .article-header .breadcrumb-link,
-.theme-purple .article-header .breadcrumb-link,
+.theme-purple .article-header .breadcrumb-link {
+    color: white;
+    border-color: white;
+}
+
 .theme-green .article-header .article-title,
 .theme-pink .article-header .article-title,
 .theme-blue .article-header .article-title,
@@ -188,7 +200,8 @@
 .theme-pink .article-header .breadcrumb-link:hover,
 .theme-blue .article-header .breadcrumb-link:hover,
 .theme-purple .article-header .breadcrumb-link:hover {
-    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
 .article-title {
