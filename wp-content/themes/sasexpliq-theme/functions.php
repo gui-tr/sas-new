@@ -321,7 +321,7 @@ add_action('init', 'sasexpliq_rename_theme_color_taxonomy', 1000);
  */
 function sasexpliq_custom_excerpt_length($length) {
     if (get_post_type() === 'article') {
-        return 20; // Number of words
+        return 10; // Number of words
     }
     return $length;
 }
