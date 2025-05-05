@@ -78,14 +78,19 @@ $featured_image = get_the_post_thumbnail_url($theme_id, 'full');
                     $article_title = get_the_title();
                     $article_excerpt = get_the_excerpt();
                     ?>
-                    <a href="<?php the_permalink(); ?>" class="article-card">
+                    <div class="article-card">
                         <div class="article-card-inner">
-                            <h3 class="article-title"><?php echo esc_html($article_title); ?></h3>
+                            <div class="tts-readable">
+                                <h3 class="article-title"><?php echo esc_html($article_title); ?></h3>
+                            </div>
                             <div class="article-excerpt">
                                 <?php echo wpautop(esc_html($article_excerpt)); ?>
                             </div>
+                            <a href="<?php the_permalink(); ?>" class="article-read-more" aria-label="<?php _e('Lire l\'article', 'sasexpliq'); ?>">
+                                &#x1F87A;
+                            </a>
                         </div>
-                    </a>
+                    </div>
                     <?php
                 endwhile;
                 
