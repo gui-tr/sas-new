@@ -266,6 +266,29 @@
     margin: 0 auto;
 }
 
+/* List styling for article content */
+.article-entry ul,
+.article-entry ol {
+    padding-left: 2em;
+    margin: 1em 0;
+}
+
+.article-entry ul {
+    list-style-type: disc;
+}
+
+.article-entry ol {
+    list-style-type: decimal;
+}
+
+.article-entry li {
+    margin-bottom: 0.5em;
+}
+
+.article-entry li:last-child {
+    margin-bottom: 0;
+}
+
 .article-entry p {
     margin-bottom: var(--space-md);
 }
