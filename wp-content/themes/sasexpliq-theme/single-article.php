@@ -45,8 +45,13 @@ if (!empty($theme_terms)) {
         <div class="container">
             <?php if ($theme_obj) : ?>
             <div class="article-breadcrumb">
-                <a href="<?php echo esc_url($theme_obj['url']); ?>" class="breadcrumb-link">
-                    &#x1F878;
+                <a href="<?php echo esc_url($theme_obj['url']); ?>" class="breadcrumb-link" aria-label="Retour">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="vertical-align: middle;">
+                        <line x1="20" y1="12" x2="4" y2="12" stroke="currentColor" stroke-width="2" />
+                        <polyline points="10 6 4 12 10 18" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
                 </a>
             </div>
             <?php endif; ?>
@@ -55,6 +60,7 @@ if (!empty($theme_terms)) {
             </div>
         </div>
     </div>
+
 
     <div class="container">
         <article id="post-<?php the_ID(); ?>" <?php post_class('article-content'); ?>>
@@ -104,7 +110,12 @@ if (!empty($theme_terms)) {
                             <?php the_excerpt(); ?>
                         </div>
                         <a href="<?php the_permalink(); ?>" class="article-read-more" aria-label="<?php _e('Lire l\'article', 'sasexpliq'); ?>">
-                            &#x1F87A;
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="vertical-align: middle;">
+                                <line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2" />
+                                <polyline points="14 6 20 12 14 18" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
                         </a>
                     </div>
                 </div>
@@ -117,11 +128,19 @@ if (!empty($theme_terms)) {
 
         <!-- Back to Theme -->
         <?php if ($theme_obj) : ?>
-        <div class="theme-actions">
-            <a href="<?php echo esc_url($theme_obj['url']); ?>" class="btn-back-to-theme">
-                <?php _e('&#x1F878; Retour à ', 'sasexpliq'); ?> <?php echo esc_html($theme_obj['title']); ?>
-            </a>
-        </div>
+            <div class="theme-actions">
+                <a href="<?php echo esc_url($theme_obj['url']); ?>" class="btn-back-to-theme">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="vertical-align: middle;">
+                  <line x1="20" y1="12" x2="4" y2="12" stroke="currentColor" stroke-width="2" />
+                  <polyline points="10 6 4 12 10 18" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+
+                    <?php _e('Retour à ', 'sasexpliq'); ?> <?php echo esc_html($theme_obj['title']); ?>
+                </a>
+            </div>
+
         <?php endif; ?>
     </div>
 </main>
