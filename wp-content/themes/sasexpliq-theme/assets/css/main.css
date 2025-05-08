@@ -336,6 +336,7 @@ a:hover, a:focus {
 .themes-section {
     padding: var(--space-xxl) 0;
     background-color: white;
+    scroll-margin-top: calc(var(--font-size-xxl) * 2);
 }
 
 .themes-section .section-title {
