@@ -97,7 +97,13 @@
     
     .a-propos-page .section-image {
         margin-top: var(--space-lg);
-        order: -1; /* Move images above text on tablets */
+        display: flex;
+        justify-content: center;
+    }
+    
+    .a-propos-page .section-image img {
+        max-width: 60%; 
+        margin: 0 auto; 
     }
     
     .a-propos-page .about-section {

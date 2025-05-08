@@ -72,8 +72,14 @@ function sasexpliq_scripts() {
     // Enqueue footer styles
     wp_enqueue_style( 'sasexpliq-footer', SASEXPLIQ_THEME_URI . '/assets/css/footer.css', array('sasexpliq-style'), '1.0.0' );
     
-    // Enqueue main JavaScript file
-    wp_enqueue_script( 'sasexpliq-main', SASEXPLIQ_THEME_URI . '/assets/js/main.js', array('jquery'), '1.0.0', true );
+    // Enqueue jQuery (should already be included by WordPress)
+    wp_enqueue_script('jquery');
+    
+    // Enqueue Superfish JS
+    wp_enqueue_script('superfish', 'https://cdnjs.cloudflare.com/ajax/libs/superfish/1.7.10/js/superfish.min.js', array('jquery'), '1.7.10', true);
+    
+    // Enqueue theme's main JS
+    wp_enqueue_script('sasexpliq-main', get_template_directory_uri() . '/assets/js/main.js', array('jquery', 'superfish'), '1.0.0', true);
     
     // Enqueue dark mode JavaScript
     wp_enqueue_script( 'sasexpliq-dark-mode', SASEXPLIQ_THEME_URI . '/assets/js/dark-mode.js', array(), '1.0.0', true );
@@ -225,7 +231,7 @@ function sasexpliq_process_contact_form() {
     }
 
     // Email content
-    $to = get_option( 'admin_email' );
+    $to = 'info@sasexpliq.com';
     $subject = 'Nouveau message de contact de ' . $name;
     $body = "Nom: $name\n\nEmail: $email\n\nMessage:\n$message";
     $headers = array('Content-Type: text/plain; charset=UTF-8');
@@ -316,57 +322,16 @@ function sasexpliq_rename_theme_color_taxonomy() {
 }
 add_action('init', 'sasexpliq_rename_theme_color_taxonomy', 1000);
 
-// /**
-//  * Modify article post type to include theme in URL structure
-//  */
-// function sasexpliq_modify_article_permalink($post_link, $post) {
-//     if ($post->post_type === 'article') {
-//         // Get the theme color terms for this article
-//         $terms = get_the_terms($post->ID, 'theme_color');
-        
-//         if ($terms && !is_wp_error($terms)) {
-//             $theme_slug = $terms[0]->slug;
-            
-//             // Get the theme post that matches this term
-//             $theme_args = array(
-//                 'post_type' => 'theme',
-//                 'posts_per_page' => 1,
-//                 'tax_query' => array(
-//                     array(
-//                         'taxonomy' => 'theme_color',
-//                         'field' => 'slug',
-//                         'terms' => $theme_slug,
-//                     ),
-//                 ),
-//             );
-            
-//             $theme_query = new WP_Query($theme_args);
-//             if ($theme_query->have_posts()) {
-//                 $theme_query->the_post();
-//                 $theme_post_name = get_post_field('post_name', get_the_ID());
-//                 wp_reset_postdata();
-                
-//                 // Replace the "article" part with "theme/theme-name"
-//                 $post_link = str_replace('article/', 'theme/' . $theme_post_name . '/', $post_link);
-//             }
-//         }
-//     }
-    
-//     return $post_link;
-// }
-// add_filter('post_type_link', 'sasexpliq_modify_article_permalink', 10, 2);
-
-// /**
-//  * Add a rewrite rule to handle the new URL structure
-//  */
-// function sasexpliq_add_article_rewrite_rules() {
-//     add_rewrite_rule(
-//         'theme/([^/]+)/([^/]+)/?$',
-//         'index.php?post_type=article&name=$2',
-//         'top'
-//     );
-// }
-// add_action('init', 'sasexpliq_add_article_rewrite_rules');
+/**
+ * Limit excerpt length for articles
+ */
+function sasexpliq_custom_excerpt_length($length) {
+    if (get_post_type() === 'article') {
+        return 10; // Number of words
+    }
+    return $length;
+}
+add_filter('excerpt_length', 'sasexpliq_custom_excerpt_length');
 
 /**
  * Include additional files

@@ -87,6 +87,28 @@ get_header();
                 </div>
             </section>
             
+            <!-- Section: En Facile à Lire et à Comprendre -->
+            <section class="about-section">
+                <div class="section-content">
+                    <div class="section-text">
+                        <div class="tts-readable">
+                            <h2 class="section-title">En Facile à Lire et à Comprendre</h2>
+                        </div>
+                        <div class="section-body">
+                            <p>SASEXPLIQ a des textes écrits en FALC.</p>
+                            <p>Le FALC ce sont des textes faciles à lire.</p>
+                            <p>Le FALC ce sont des textes faciles à comprendre.</p>
+                            <p>L'équipe de SASEXPLIQ écrit les textes.</p>
+                            <p>Les textes sont lus par des personnes.</p>
+                            <p>Les personnes valident le texte.</p>
+                            <p>Ce sont des personnes de la Fondation Aigues Vertes.</p>
+                            <p>La Fondation Aigues Vertes est à Bernex dans le canton de Genève.</p>
+                            <p>Nous remercions la Fondation Aigues Vertes pour son aide !</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
             <?php
             // If there's additional content from the WordPress editor
             if (have_posts()) :

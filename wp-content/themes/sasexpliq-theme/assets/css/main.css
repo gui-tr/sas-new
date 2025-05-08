@@ -336,6 +336,11 @@ a:hover, a:focus {
 .themes-section {
     padding: var(--space-xxl) 0;
     background-color: white;
+    scroll-margin-top: calc(var(--font-size-xxl) * 2);
+}
+
+.themes-section .section-title {
+    margin-bottom: calc(var(--space-lg));
 }
 
 .section-title {
@@ -349,7 +354,6 @@ a:hover, a:focus {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-xl);
-    row-gap: calc(var(--space-xl) * 2); /* Double the gap between rows */
 }
 
 .theme-card {
@@ -381,24 +385,26 @@ a:hover, a:focus {
 }
 
 .theme-card-icon {
-    width: 400px;
-    height: 400px;
+    width: 100%;
+    height: 200px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: -160px;
-    margin-right: -160px;
+    margin: 0;
+    padding: var(--space-md);
 }
 
 .theme-card-icon img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    max-width: 150px;
+    max-height: 150px;
 }
 
 .theme-card-title {
-    font-size: var(--font-size-lg);
+    font-size: 1.5rem;
     font-weight: 600;
     text-align: left;
     margin-top: var(--space-lg);
@@ -416,51 +422,55 @@ a:hover, a:focus {
 
 /* Theme Card Colors */
 .theme-card-purple {
-    background-color: var(--color-purple-lite);
+    background-color: var(--color-purple);
 }
 .theme-card-purple .theme-card-icon img {
     fill: var(--color-purple);
 }
 
 .theme-card-orange {
-    background-color: var(--color-orange-lite);
+    background-color: var(--color-orange);
 }
 .theme-card-orange .theme-card-icon img {
     fill: var(--color-orange);
 }
 
 .theme-card-blue {
-    background-color: var(--color-blue-lite);
+    background-color: var(--color-blue);
 }
 .theme-card-blue .theme-card-icon img {
     fill: var(--color-blue);
 }
 
 .theme-card-yellow {
-    background-color: var(--color-yellow-lite);
+    background-color: var(--color-yellow);
 }
 .theme-card-yellow .theme-card-icon img {
     fill: var(--color-yellow);
 }
 
 .theme-card-pink {
-    background-color: var(--color-pink-lite);
+    background-color: var(--color-pink);
 }
 .theme-card-pink .theme-card-icon img {
     fill: var(--color-pink);
 }
 
 .theme-card-green {
-    background-color: var(--color-green-lite);
+    background-color: var(--color-green);
 }
 .theme-card-green .theme-card-icon img {
     fill: var(--color-green);
 }
 
+.theme-card:not(.theme-card-orange):not(.theme-card-yellow) .theme-card-icon img {
+    filter: invert(1);
+}
+
 /* Contact Section */
 .contact-section {
     padding: var(--space-xxl) 0;
-    margin-top: var(--space-xxl);
+    /* margin-top: var(--space-xxl); */
 }
 
 .contact-section .section-title {
@@ -550,7 +560,7 @@ a:hover, a:focus {
     align-items: center;
 }
 
-.footer-info {
+.footer-left {
     line-height: 1.6;
 }
 

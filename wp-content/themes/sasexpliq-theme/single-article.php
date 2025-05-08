@@ -16,7 +16,7 @@ $theme_obj = null;
 if (!empty($theme_terms)) {
     $args = array(
         'post_type' => 'theme',
-        'posts_per_page' => 1,
+        'posts_per_page' => 1, 
         'tax_query' => array(
             array(
                 'taxonomy' => 'theme_color',
@@ -46,7 +46,7 @@ if (!empty($theme_terms)) {
             <?php if ($theme_obj) : ?>
             <div class="article-breadcrumb">
                 <a href="<?php echo esc_url($theme_obj['url']); ?>" class="breadcrumb-link">
-                    &larr; <?php echo esc_html($theme_obj['title']); ?>
+                    &#x1F878;
                 </a>
             </div>
             <?php endif; ?>
@@ -95,14 +95,19 @@ if (!empty($theme_terms)) {
             
             <div class="articles-grid">
                 <?php while ($related_articles->have_posts()) : $related_articles->the_post(); ?>
-                <a href="<?php the_permalink(); ?>" class="article-card">
+                <div class="article-card">
                     <div class="article-card-inner">
-                        <h3 class="article-title"><?php the_title(); ?></h3>
+                        <div class="tts-readable">
+                            <h3 class="article-title"><?php the_title(); ?></h3>
+                        </div>
                         <div class="article-excerpt">
                             <?php the_excerpt(); ?>
                         </div>
+                        <a href="<?php the_permalink(); ?>" class="article-read-more" aria-label="<?php _e('Lire l\'article', 'sasexpliq'); ?>">
+                            &#x1F87A;
+                        </a>
                     </div>
-                </a>
+                </div>
                 <?php endwhile; ?>
             </div>
             
@@ -114,7 +119,7 @@ if (!empty($theme_terms)) {
         <?php if ($theme_obj) : ?>
         <div class="theme-actions">
             <a href="<?php echo esc_url($theme_obj['url']); ?>" class="btn-back-to-theme">
-                <?php _e('Retour à ', 'sasexpliq'); ?> <?php echo esc_html($theme_obj['title']); ?>
+                <?php _e('&#x1F878; Retour à ', 'sasexpliq'); ?> <?php echo esc_html($theme_obj['title']); ?>
             </a>
         </div>
         <?php endif; ?>
