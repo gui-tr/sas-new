@@ -72,8 +72,14 @@ function sasexpliq_scripts() {
     // Enqueue footer styles
     wp_enqueue_style( 'sasexpliq-footer', SASEXPLIQ_THEME_URI . '/assets/css/footer.css', array('sasexpliq-style'), '1.0.0' );
     
-    // Enqueue main JavaScript file
-    wp_enqueue_script( 'sasexpliq-main', SASEXPLIQ_THEME_URI . '/assets/js/main.js', array('jquery'), '1.0.0', true );
+    // Enqueue jQuery (should already be included by WordPress)
+    wp_enqueue_script('jquery');
+    
+    // Enqueue Superfish JS
+    wp_enqueue_script('superfish', 'https://cdnjs.cloudflare.com/ajax/libs/superfish/1.7.10/js/superfish.min.js', array('jquery'), '1.7.10', true);
+    
+    // Enqueue theme's main JS
+    wp_enqueue_script('sasexpliq-main', get_template_directory_uri() . '/assets/js/main.js', array('jquery', 'superfish'), '1.0.0', true);
     
     // Enqueue dark mode JavaScript
     wp_enqueue_script( 'sasexpliq-dark-mode', SASEXPLIQ_THEME_URI . '/assets/js/dark-mode.js', array(), '1.0.0', true );

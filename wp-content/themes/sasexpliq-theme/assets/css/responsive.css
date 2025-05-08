@@ -47,62 +47,96 @@
     /* Navigation Menu */
     .menu-toggle {
         display: block;
-    }
-    
-    .nav-menu {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        background-color: var(--color-background);
-        width: 100%;
-        height: 0;
-        overflow: hidden;
-        flex-direction: column;
-        align-items: center;
-        gap: var(--space-md);
-        transition: height var(--transition-normal);
-        box-shadow: var(--shadow-md);
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        position: relative;
         z-index: 100;
     }
-    
-    .nav-menu.active {
-        height: auto;
-        padding: var(--space-lg) 0;
+
+    .menu-toggle .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px 0;
+        background-color: var(--color-text);
+        transition: all 0.3s ease;
     }
-    
-    .nav-menu li {
-        margin: 0 0 var(--space-md) 0;
-    }
-    
-    .nav-menu .sub-menu {
-        position: static;
-        box-shadow: none;
-        padding: var(--space-sm);
-        border: 1px solid #eee;
-        margin-top: var(--space-sm);
-        width: 100%;
-    }
-    
-    .nav-menu .menu-item-has-children > a {
-        margin-bottom: var(--space-sm);
-    }
-    
-    /* Toggle animation for menu button */
+
     .menu-toggle.active .bar:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
     }
-    
+
     .menu-toggle.active .bar:nth-child(2) {
         opacity: 0;
     }
-    
+
     .menu-toggle.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
-    
-    /* Add more space between dark mode toggle and hamburger menu */
-    .dark-mode-toggle {
-        margin-right: var(--space-lg);
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--color-background);
+        padding: var(--space-md);
+        box-shadow: var(--shadow-md);
+        z-index: 99;
+    }
+
+    .nav-menu li {
+        margin: 0;
+        padding: var(--space-sm) 0;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .nav-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-menu .sub-menu {
+        position: static;
+        display: none;
+        padding-left: var(--space-md);
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .nav-menu .menu-item-has-children > a {
+        position: relative;
+        padding-right: 30px;
+    }
+
+    .nav-menu .menu-item-has-children > a:after {
+        content: "▼";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.8em;
+        transition: transform 0.3s ease;
+    }
+
+    .nav-menu .menu-item-has-children.submenu-open > a:after {
+        transform: translateY(-50%) rotate(180deg);
+    }
+
+    .nav-menu a {
+        color: var(--color-text);
+        font-weight: 600;
+        font-size: 1.1rem;
+        display: block;
+        padding: var(--space-sm) 0;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a:focus,
+    .current-menu-item > a {
+        color: var(--color-secondary);
     }
 }
 

@@ -1,4 +1,4 @@
- /**
+/**
  * Sasexpliq Theme - Main JavaScript File
  */
 
@@ -9,29 +9,23 @@
      * Mobile Menu Toggle
      */
     function initMobileMenu() {
-        const menuToggle = $('.menu-toggle');
-        const navMenu = $('.nav-menu');
-        
-        menuToggle.on('click', function() {
+        // Initialize Superfish with default settings
+        $('#primary-menu').superfish();
+
+        // Mobile menu toggle
+        $('.menu-toggle').on('click', function(e) {
+            e.preventDefault();
+            $('.nav-menu').slideToggle(300);
             $(this).toggleClass('active');
-            navMenu.toggleClass('active');
         });
-        
-        // Close menu when clicking outside
-        $(document).on('click', function(event) {
-            if (!$(event.target).closest('.main-navigation').length) {
-                menuToggle.removeClass('active');
-                navMenu.removeClass('active');
+
+        // Handle window resize
+        $(window).on('resize', function() {
+            if ($(window).width() > 991) {
+                $('.nav-menu').removeAttr('style');
+                $('.menu-toggle').removeClass('active');
             }
         });
-        
-        // Handle sub-menu toggles for mobile
-        if (window.innerWidth < 768) {
-            $('.menu-item-has-children > a').on('click', function(e) {
-                e.preventDefault();
-                $(this).siblings('.sub-menu').slideToggle();
-            });
-        }
     }
 
     /**
