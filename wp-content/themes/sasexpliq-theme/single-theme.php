@@ -87,7 +87,12 @@ $featured_image = get_the_post_thumbnail_url($theme_id, 'full');
                                 <?php echo wpautop(esc_html($article_excerpt)); ?>
                             </div>
                             <a href="<?php the_permalink(); ?>" class="article-read-more" aria-label="<?php _e('Lire l\'article', 'sasexpliq'); ?>">
-                                &#x1F87A;
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="vertical-align: middle;">
+                                    <line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2" />
+                                    <polyline points="14 6 20 12 14 18" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
                             </a>
                         </div>
                     </div>
