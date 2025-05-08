@@ -226,10 +226,33 @@ a:hover, a:focus {
     transition: transform var(--transition-fast);
 }
 
-/* Rotate arrow when submenu is open */
-.nav-menu li.menu-item-has-children:hover > a:after {
-    transform: translateY(-50%) rotate(180deg);
+/* Rotate arrow when submenu is open - works on both desktop hover and mobile JS toggle */
+.nav-menu li.menu-item-has-children > a:after {
+    content: "▼";
+    display: inline-block;
+    font-size: 0.8em;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform var(--transition-fast);
 }
+
+/* Desktop: rotate on hover */
+@media (min-width: 992px) {
+    .nav-menu li.menu-item-has-children:hover > a:after {
+        transform: translateY(-50%) rotate(180deg);
+    }
+}
+
+/* Mobile: rotate on submenu open */
+@media (max-width: 991px) {
+    .nav-menu li.menu-item-has-children.submenu-open > a:after {
+        transform: translateY(-50%) rotate(180deg);
+    }
+}
+
+
 
 .nav-menu a {
     color: var(--color-text);
