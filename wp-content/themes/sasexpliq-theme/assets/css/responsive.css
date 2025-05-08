@@ -138,6 +138,11 @@
     .current-menu-item > a {
         color: var(--color-secondary);
     }
+    
+    /* Add more space between hamburger menu and dark mode toggle */
+    .dark-mode-toggle {
+        margin-right: var(--space-md);
+    }
 }
 
 /* Mobile Devices (576px - 767px) */
