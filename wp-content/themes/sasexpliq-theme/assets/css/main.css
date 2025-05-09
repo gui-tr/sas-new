@@ -89,7 +89,6 @@ body {
     line-height: 1.5;
     color: var(--color-text);
     background-color: var(--color-background);
-    overflow-x: hidden;
     font-weight: 300;
 }
 
@@ -106,6 +105,7 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+    object-fit: cover;
 }
 
 a {
@@ -124,6 +124,7 @@ a:hover, a:focus {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--space-lg);
+    position: relative;
 }
 
 .screen-reader-text {
@@ -252,8 +253,6 @@ a:hover, a:focus {
     }
 }
 
-
-
 .nav-menu a {
     color: var(--color-text);
     font-weight: 600;
@@ -376,7 +375,7 @@ a:hover, a:focus {
 .themes-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-xl);
+    gap: var(--space-lg);
 }
 
 .theme-card {
@@ -387,7 +386,7 @@ a:hover, a:focus {
     display: flex;
     flex-direction: column;
     position: relative;
-    margin-bottom: 60px; /* Add margin to accommodate the title */
+    margin-bottom: var(--space-xl);
 }
 
 .theme-card-link {
@@ -493,7 +492,13 @@ a:hover, a:focus {
 /* Contact Section */
 .contact-section {
     padding: var(--space-xl) 0;
-    /* margin-top: var(--space-xxl); */
+}
+
+/* Add margin-top only for desktop */
+@media (min-width: 769px) {
+    .contact-section {
+        margin-top: var(--space-xxl);
+    }
 }
 
 .contact-section .section-title {
@@ -621,10 +626,15 @@ a:hover, a:focus {
 @media (max-width: 1024px) {
     .themes-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+    }
+    
+    .theme-card {
+        margin-bottom: var(--space-xl);
     }
     
     .theme-card-icon {
-        width: 250px; /* Smaller than 300px */
+        width: 250px;
         height: 250px;
         margin-left: -75px;
         margin-right: -75px;
@@ -633,6 +643,14 @@ a:hover, a:focus {
 
 /* Intermediate breakpoint for narrower two-column layout */
 @media (max-width: 900px) and (min-width: 769px) {
+    .themes-grid {
+        gap: var(--space-lg);
+    }
+    
+    .theme-card {
+        margin-bottom: var(--space-xl);
+    }
+    
     .theme-card-icon {
         width: 220px;
         height: 220px;
@@ -645,6 +663,11 @@ a:hover, a:focus {
 @media (max-width: 768px) {
     .themes-grid {
         grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .theme-card {
+        margin-bottom: var(--space-xl);
     }
     
     .theme-card-icon {
@@ -800,4 +823,40 @@ body {
 
 [data-theme="dark"] .qui-sommes-nous-page .team-member-role {
     color: #000000;
+}
+
+/* Additional responsive utilities */
+.hide-on-mobile {
+    display: block;
+}
+
+.show-on-mobile {
+    display: none;
+}
+
+/* Responsive text adjustments */
+@media (max-width: 767px) {
+    :root {
+        --font-size-base: 14px;
+        --font-size-body: 1rem;
+    }
+    
+    .hide-on-mobile {
+        display: none;
+    }
+    
+    .show-on-mobile {
+        display: block;
+    }
+}
+
+/* Very small devices */
+@media (max-width: 320px) {
+    .container {
+        padding: 0 var(--space-sm);
+    }
+    
+    :root {
+        --font-size-base: 13px;
+    }
 }
