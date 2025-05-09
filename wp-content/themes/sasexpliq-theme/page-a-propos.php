@@ -101,7 +101,7 @@ get_header();
                             <p>L'équipe de SASEXPLIQ écrit les textes.</p>
                             <p>Les textes sont lus par des personnes.</p>
                             <p>Les personnes valident le texte.</p>
-                            <p>Ce sont des personnes de la Fondation Aigues Vertes.</p>
+                            <p>Ce sont des personnes de la <a href="https://www.aigues-vertes.ch/" target="_blank" rel="noopener noreferrer">Fondation Aigues Vertes</a>.</p>
                             <p>La Fondation Aigues Vertes est à Bernex dans le canton de Genève.</p>
                             <p>Nous remercions la Fondation Aigues Vertes pour son aide !</p>
                         </div>
