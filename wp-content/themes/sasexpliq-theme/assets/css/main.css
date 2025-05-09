@@ -9,12 +9,6 @@
     box-sizing: border-box;
 }
 
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-    position: relative;
-}
-
 :root {
     /* Brand Colors */
     --color-primary: #7A1EA1;
